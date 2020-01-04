@@ -89,6 +89,15 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Add coverage badge from Coveralls.io-->
+            <plugin>
+                <groupId>org.eluder.coveralls</groupId>
+                <artifactId>coveralls-maven-plugin</artifactId>
+                <configuration>
+                    <repoToken>g2pnhpnDLcQkAiqdL03F8WLwScPhbymlu</repoToken>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
