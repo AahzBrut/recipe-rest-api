@@ -29,4 +29,6 @@ build/
 
 ### VS Code ###
 .vscode/
-/vpp/project/
+vpp/project/**
+!vpp/data.zip
+!vpp/project.xml
