@@ -1,6 +1,3 @@
 language: java
 os: linux
 arch: amd64
-stages:
-  name: unit tests
-  if: branch = master
