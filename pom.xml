@@ -16,6 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
+        <coverall.plugin.version>4.3.0</coverall.plugin.version>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -94,6 +95,7 @@
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
+                <version>${coverall.plugin.version}</version>
                 <configuration>
                     <repoToken>g2pnhpnDLcQkAiqdL03F8WLwScPhbymlu</repoToken>
                 </configuration>
