@@ -32,3 +32,4 @@ build/
 vpp/project/**
 !vpp/data.zip
 !vpp/project.xml
+db/
