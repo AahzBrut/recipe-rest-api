@@ -8,6 +8,7 @@ import lombok.experimental.SuperBuilder;
 import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 
 import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -16,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.util.LinkedList;
@@ -63,4 +65,12 @@ public class Recipe extends BaseEntity {
             inverseJoinColumns = {@JoinColumn(name = "CATEGORY_ID")})
     @Builder.Default()
     private List<Category> categories = new LinkedList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    @Builder.Default()
+    private List<Note> notes = new LinkedList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    @Builder.Default()
+    private List<RecipeStep> recipeSteps = new LinkedList<>();
 }

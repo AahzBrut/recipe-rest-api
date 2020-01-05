@@ -140,7 +140,7 @@
             <column name="UOM_ID" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="UOM_COUNT" type="DECIMAL(19, 5)">
+            <column name="UOM_AMOUNT" type="DECIMAL(19, 5)">
                 <constraints nullable="false"/>
             </column>
             <column name="CREATED_TIMESTAMP" type="TIMESTAMP">

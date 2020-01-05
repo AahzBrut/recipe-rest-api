@@ -17,6 +17,7 @@
     <properties>
         <java.version>11</java.version>
         <coverall.plugin.version>4.3.0</coverall.plugin.version>
+        <maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -100,6 +101,22 @@
                     <repoToken>g2pnhpnDLcQkAiqdL03F8WLwScPhbymlu</repoToken>
                 </configuration>
             </plugin>
+
+            <!-- Drop DB folder in mvn clean -->
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>${maven.clean.plugin.version}</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>
+                                db
+                            </directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
