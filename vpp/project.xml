@@ -2050,50 +2050,6 @@
 				</ModelRelationshipContainer>
 			</ModelChildren>
 		</ModelRelationshipContainer>
-		<ModelRelationshipContainer BacklogActivityId="0" Documentation_plain="" Id="ZvwITvaGAqDOAQff" Name="DBForeignKey" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-04T22:37:45.062" PmLastModified="2020-01-04T22:48:24.313" QualityReason_IsNull="true" QualityScore="-1" UserIDLastNumericValue="0" UserID_IsNull="true">
-			<ModelChildren>
-				<DBForeignKey BacklogActivityId="0" DataModel="Physical" Documentation_plain="" ForeignKeyRelationshipPattern="{association_name}" From="tIG_jvaGAqDOAQbT" FromMultiplicity="1" FromPhrase_IsNull="true" Id="_arwTvaGAqDOAQei" Identifying="false" Name="" OnDelete_IsNull="true" OnUpdate_IsNull="true" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-04T22:36:45.247" PmLastModified="2020-01-04T22:37:45.063" QualityReason_IsNull="true" QualityScore="-1" Subtype="false" SyncToAssociation="Yes" SyncType="Not Sync" To="Uc9wTvaGAqDOAQeB" ToMultiplicity="0..*" ToPhrase_IsNull="true" UserIDLastNumericValue="0" UserID_IsNull="true">
-					<MasterView>
-						<DBForeignKey Idref="u6rwTvaGAqDOAQej" Name=""/>
-					</MasterView>
-				</DBForeignKey>
-				<DBForeignKey BacklogActivityId="0" DataModel="Physical" Documentation_plain="" ForeignKeyRelationshipPattern="{association_name}" From="hnfrjvaGAqDOAQaY" FromMultiplicity="1" FromPhrase_IsNull="true" Id="6B3wTvaGAqDOAQe7" Identifying="false" Name="" OnDelete_IsNull="true" OnUpdate_IsNull="true" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-04T22:37:10.423" PmLastModified="2020-01-04T22:37:45.066" QualityReason_IsNull="true" QualityScore="-1" Subtype="false" SyncToAssociation="Yes" SyncType="Not Sync" To="Uc9wTvaGAqDOAQeB" ToMultiplicity="0..*" ToPhrase_IsNull="true" UserIDLastNumericValue="0" UserID_IsNull="true">
-					<MasterView>
-						<DBForeignKey Idref="VB3wTvaGAqDOAQe8" Name=""/>
-					</MasterView>
-				</DBForeignKey>
-				<DBForeignKey BacklogActivityId="0" DataModel="Physical" Documentation_plain="" ForeignKeyRelationshipPattern="{association_name}" From="hnfrjvaGAqDOAQaY" FromMultiplicity="1" FromPhrase_IsNull="true" Id="sQ2oTvaGAqDOAQgO" Identifying="false" Name="" OnDelete_IsNull="true" OnUpdate_IsNull="true" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-04T22:43:41.709" PmLastModified="2020-01-04T22:44:18.847" QualityReason_IsNull="true" QualityScore="-1" Subtype="false" SyncToAssociation="Yes" SyncType="Not Sync" To="m9CoTvaGAqDOAQfs" ToMultiplicity="0..*" ToPhrase_IsNull="true" UserIDLastNumericValue="0" UserID_IsNull="true">
-					<MasterView>
-						<DBForeignKey Idref="pQ2oTvaGAqDOAQgP" Name=""/>
-					</MasterView>
-				</DBForeignKey>
-				<DBForeignKey BacklogActivityId="0" DataModel="Physical" Documentation_plain="" ForeignKeyRelationshipPattern="{association_name}" From="4cN_jvaGAqDOAQb9" FromMultiplicity="1" FromPhrase_IsNull="true" Id="Sb.oTvaGAqDOAQgY" Identifying="false" Name="" OnDelete_IsNull="true" OnUpdate_IsNull="true" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-04T22:44:01.426" PmLastModified="2020-01-04T22:44:18.843" QualityReason_IsNull="true" QualityScore="-1" Subtype="false" SyncToAssociation="Yes" SyncType="Not Sync" To="m9CoTvaGAqDOAQfs" ToMultiplicity="0..*" ToPhrase_IsNull="true" UserIDLastNumericValue="0" UserID_IsNull="true">
-					<MasterView>
-						<DBForeignKey Idref="pb.oTvaGAqDOAQgZ" Name=""/>
-					</MasterView>
-				</DBForeignKey>
-				<DBForeignKey BacklogActivityId="0" DataModel="Physical" Documentation_plain="" ForeignKeyRelationshipPattern="{association_name}" From="4cN_jvaGAqDOAQb9" FromMultiplicity="1" FromPhrase_IsNull="true" Id="By3oTvaGAqDOAQhX" Identifying="false" Name="" OnDelete_IsNull="true" OnUpdate_IsNull="true" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-04T22:45:53.888" PmLastModified="2020-01-04T22:46:12.820" QualityReason_IsNull="true" QualityScore="-1" Subtype="false" SyncToAssociation="Yes" SyncType="Not Sync" To="o8roTvaGAqDOAQgx" ToMultiplicity="0..*" ToPhrase_IsNull="true" UserIDLastNumericValue="0" UserID_IsNull="true">
-					<MasterView>
-						<DBForeignKey Idref="Py3oTvaGAqDOAQhY" Name=""/>
-					</MasterView>
-				</DBForeignKey>
-				<DBForeignKey BacklogActivityId="0" DataModel="Physical" Documentation_plain="" ForeignKeyRelationshipPattern="{association_name}" From="Tb3_jvaGAqDOAQcl" FromMultiplicity="1" FromPhrase_IsNull="true" Id="bYIYTvaGAqDOAQh0" Identifying="false" Name="" OnDelete_IsNull="true" OnUpdate_IsNull="true" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-04T22:46:29.942" PmLastModified="2020-01-04T22:46:56.435" QualityReason_IsNull="true" QualityScore="-1" Subtype="false" SyncToAssociation="Yes" SyncType="Not Sync" To="o8roTvaGAqDOAQgx" ToMultiplicity="0..*" ToPhrase_IsNull="true" UserIDLastNumericValue="0" UserID_IsNull="true">
-					<MasterView>
-						<DBForeignKey Idref="M4IYTvaGAqDOAQh1" Name=""/>
-					</MasterView>
-				</DBForeignKey>
-				<DBForeignKey BacklogActivityId="0" DataModel="Physical" Documentation_plain="" ForeignKeyRelationshipPattern="{association_name}" From="uwMwTvaGAqDOAQdU" FromMultiplicity="1" FromPhrase_IsNull="true" Id="VZYYTvaGAqDOAQh." Identifying="false" Name="" OnDelete_IsNull="true" OnUpdate_IsNull="true" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-04T22:46:40.170" PmLastModified="2020-01-04T22:46:56.430" QualityReason_IsNull="true" QualityScore="-1" Subtype="false" SyncToAssociation="Yes" SyncType="Not Sync" To="o8roTvaGAqDOAQgx" ToMultiplicity="0..*" ToPhrase_IsNull="true" UserIDLastNumericValue="0" UserID_IsNull="true">
-					<MasterView>
-						<DBForeignKey Idref="Y5YYTvaGAqDOAQh_" Name=""/>
-					</MasterView>
-				</DBForeignKey>
-				<DBForeignKey BacklogActivityId="0" DataModel="Physical" Documentation_plain="" ForeignKeyRelationshipPattern="{association_name}" From="hnfrjvaGAqDOAQaY" FromMultiplicity="1" FromPhrase_IsNull="true" Id="w8WYTvaGAqDOAQi." Identifying="false" Name="" OnDelete_IsNull="true" OnUpdate_IsNull="true" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-04T22:48:00.579" PmLastModified="2020-01-04T22:48:24.310" QualityReason_IsNull="true" QualityScore="-1" Subtype="false" SyncToAssociation="Yes" SyncType="Not Sync" To="OgiYTvaGAqDOAQiS" ToMultiplicity="0..*" ToPhrase_IsNull="true" UserIDLastNumericValue="0" UserID_IsNull="true">
-					<MasterView>
-						<DBForeignKey Idref="u8WYTvaGAqDOAQi_" Name=""/>
-					</MasterView>
-				</DBForeignKey>
-			</ModelChildren>
-		</ModelRelationshipContainer>
 		<DBTable BacklogActivityId="0" DDLClauses_IsNull="true" DataModel="Physical" Documentation_plain="" Id="m9CoTvaGAqDOAQfs" Name="RECIPE_STEP" OrmSyncState="Not Sync" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-04T22:42:59.545" PmLastModified="2020-01-04T23:18:56.453" PrimaryKeyClustered="Unspecified" PrimaryKeyConstraintName="RECIPE_STEP_PK" PrimaryKeyConstraintNamePattern="" PrimaryKeyDDLClauses_IsNull="true" QualityReason_IsNull="true" QualityScore="-1" SyncType="Not Sync" Type="0" Unlogged="false" UserIDLastNumericValue="0" UserID_IsNull="true">
 			<ModelChildren>
 				<DBColumn BacklogActivityId="0" CheckConstraint_IsNull="true" Collation_IsNull="true" DDLClauses_IsNull="true" DbColumnName_IsNull="true" DefaultValue_IsNull="true" Documentation_plain="" ForeignKeyNamePattern_IsNull="true" Generated="Unspecified" Id="1FyoTvaGAqDOAQfw" IdGenerator="assigned" IdentityIncrement="-1" IdentitySeed="-1" Index="false" Length="0" Name="RECIPE_STEP_ID" Nullable="false" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-04T22:43:11.403" PmLastModified="2020-01-04T23:18:26.420" PrimaryKey="true" QualityReason_IsNull="true" QualityScore="-1" Scale="0" SequenceAllocationSize="-1" SyncToAttribute="Yes" SyncType="Not Sync" Type="int" TypeName_IsNull="true" Type_internalValue="9" Unique="true" UserIDLastNumericValue="0" UserID_IsNull="true"/>
@@ -2160,29 +2116,55 @@
 				<DBForeignKey Idref="w8WYTvaGAqDOAQi." Name=""/>
 			</ToSimpleRelationships>
 		</DBTable>
+		<DBSequence AsType="" BacklogActivityId="0" Cache="" Cycle="Unspecified" DataModel="Physical" Documentation_plain="" Id="UEp1rvaGAqDOAQoH" IncrementBy="1" MaxValue="" MinValue="" Name="RECIPE_SEQ" Order="Unspecified" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-05T15:29:16.170" PmLastModified="2020-01-05T15:30:05.450" QualityReason_IsNull="true" QualityScore="-1" StartWith="1" UserIDLastNumericValue="0" UserID_IsNull="true"/>
+		<DBSequence AsType="" BacklogActivityId="0" Cache="" Cycle="Unspecified" DataModel="Physical" Documentation_plain="" Id="r6ctrvaGAqDOAQoW" IncrementBy="1" MaxValue="" MinValue="" Name="NOTE_SEQ" Order="Unspecified" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-05T15:36:27.253" PmLastModified="2020-01-05T15:36:42.734" QualityReason_IsNull="true" QualityScore="-1" StartWith="1" UserIDLastNumericValue="0" UserID_IsNull="true"/>
+		<DBSequence AsType="" BacklogActivityId="0" Cache="" Cycle="Unspecified" DataModel="Physical" Documentation_plain="" Id="x5qtrvaGAqDOAQoc" IncrementBy="1" MaxValue="" MinValue="" Name="CATEGORY_SEQ" Order="Unspecified" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-05T15:36:56.931" PmLastModified="2020-01-05T15:37:13.513" QualityReason_IsNull="true" QualityScore="-1" StartWith="1" UserIDLastNumericValue="0" UserID_IsNull="true"/>
+		<DBSequence AsType="" BacklogActivityId="0" Cache="" Cycle="Unspecified" DataModel="Physical" Documentation_plain="" Id="ql2trvaGAqDOAQoi" IncrementBy="1" MaxValue="" MinValue="" Name="INGREDIENT_SEQ" Order="Unspecified" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-05T15:37:21.621" PmLastModified="2020-01-05T15:37:35.592" QualityReason_IsNull="true" QualityScore="-1" StartWith="1" UserIDLastNumericValue="0" UserID_IsNull="true"/>
+		<DBSequence AsType="" BacklogActivityId="0" Cache="" Cycle="Unspecified" DataModel="Physical" Documentation_plain="" Id="5GJtrvaGAqDOAQoo" IncrementBy="1" MaxValue="" MinValue="" Name="RECIPE_STEP_SEQ" Order="Unspecified" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-05T15:37:57.415" PmLastModified="2020-01-05T15:38:10.907" QualityReason_IsNull="true" QualityScore="-1" StartWith="1" UserIDLastNumericValue="0" UserID_IsNull="true"/>
+		<DBSequence AsType="" BacklogActivityId="0" Cache="" Cycle="Unspecified" DataModel="Physical" Documentation_plain="" Id="xu1trvaGAqDOAQou" IncrementBy="1" MaxValue="" MinValue="" Name="STEP_SEQ" Order="Unspecified" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-05T15:38:26.403" PmLastModified="2020-01-05T15:38:40.776" QualityReason_IsNull="true" QualityScore="-1" StartWith="1" UserIDLastNumericValue="0" UserID_IsNull="true"/>
+		<DBSequence AsType="" BacklogActivityId="0" Cache="" Cycle="Unspecified" DataModel="Physical" Documentation_plain="" Id="wCjtrvaGAqDOAQo0" IncrementBy="1" MaxValue="" MinValue="" Name="STEP_INGREDIENT_SEQ" Order="Unspecified" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-05T15:38:50.115" PmLastModified="2020-01-05T15:39:03.307" QualityReason_IsNull="true" QualityScore="-1" StartWith="1" UserIDLastNumericValue="0" UserID_IsNull="true"/>
+		<DBSequence AsType="" BacklogActivityId="0" Cache="" Cycle="Unspecified" DataModel="Physical" Documentation_plain="" Id="kqbtrvaGAqDOAQo6" IncrementBy="1" MaxValue="" MinValue="" Name="UOM_SEQ" Order="Unspecified" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-05T15:39:10.921" PmLastModified="2020-01-05T15:39:19.240" QualityReason_IsNull="true" QualityScore="-1" StartWith="1" UserIDLastNumericValue="0" UserID_IsNull="true"/>
 	</Models>
 	<Diagrams>
 		<ERDiagram AlignToGrid="false" AutoFitShapesSize="false" ConnectionPointStyle="0" ConnectorLabelOrientation="0" ConnectorLineJumps="0" ConnectorLineJumpsSize="0" ConnectorModelElementNameAlignment="4" ConnectorStyle="1" DataModel="2" DiagramBackground="rgb(255, 255, 255)" Editable="true" FollowDiagramParentElement="true" ForeignKeyArrowHeadSize="3" GridColor="rgb(192, 192, 192)" GridHeight="10" GridVisible="false" GridWidth="10" Height="526" HideConnectorIfFromToIsHidden="0" HideEmptyTaggedValues="false" Id="OSRbjvaGAqDOAQaf" ImageHeight="0" ImageScale="1.0" ImageWidth="0" InitializeDiagramForCreate="true" LogicalPhysicalColumnNameAbbreviationSetAddress="" LogicalPhysicalEntityNameAbbreviationSetAddress="" LogicalPhysicalSchemaNameAbbreviationSetAddress="" Maximized="true" ModelElementNameAlignment="4" Name="Base Diagram" PaintConnectorThroughLabel="1" PmAuthor="AahzBrut" PmCreateDateTime="2020-01-04T21:38:39.259" PmLastModified="2020-01-04T23:18:54.604" PointConnectorEndToCompartmentMember="true" QualityScore="-1" RequestFitSizeWithPromptUser="false" RequestValidateSnapToGrid="false" ShapePresentationOption="0" ShowActivityStateNodeCaption="524287" ShowAllocatedFrom="true" ShowAllocatedTo="true" ShowColorLegend="false" ShowConnectorLegend="false" ShowConnectorName="0" ShowConstraints="false" ShowDefaultPackage="false" ShowInformationItemOption="2" ShowPMAuthor="false" ShowPMDifficulty="false" ShowPMDiscipline="false" ShowPMIteration="false" ShowPMPhase="false" ShowPMPriority="false" ShowPMStatus="false" ShowPMVersion="false" ShowPackageNameStyle="0" ShowSchemaName="true" ShowShapeLegend="false" ShowShapeStereotypeIconName="true" ShowStereotypes="true" ShowTaggedValues="false" TeamworkCreateDateTime="0" TrimmedHeight="0" TrimmedWidth="0" Width="1255" X="0" Y="0" ZoomRatio="0.7" _alignColumnProperties="true" _columnConstraintsDisplayOption="2" _globalPaletteOption="true" _pointForeignKeyEndToColumn="false" _showColumnStereotypes="true" _showColumnTypes="true" _showColumnUserType="false" _showDBTableColumnsMode="1" _showDBViewColumnsMode="1" _showExtraColumnProperties="true" _showProcedureStereotypes="true" _showStoredProcedureResultSetColumns="true" _showStoredProcedures="true" _showTriggerStereotypes="true" _showTriggers="true">
 			<Shapes>
-				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="200" Id="7r5bjvaGAqDOAQaw" MetaModelElement="hnfrjvaGAqDOAQaY" Model="hnfrjvaGAqDOAQaY" ModelElementNameAlignment="9" Name="RECIPE" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="272" X="370" Y="226" ZOrder="18">
+				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="113" Id="gyaYTvaGAqDOAQii" MetaModelElement="OgiYTvaGAqDOAQiS" Model="OgiYTvaGAqDOAQiS" ModelElementNameAlignment="9" Name="NOTE" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="266" X="373" Y="20" ZOrder="2">
 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
 						<Stroke/>
 					</Line>
-					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="FreeMove" Visible="true" Width="272" X="0" Y="0"/>
+					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="FreeMove" Visible="true" Width="266" X="0" Y="0"/>
 					<FillColor Color="rgb(245, 182, 122)" Style="1" Transparency="0" Type="1"/>
 					<CompartmentFont Value="none"/>
 				</DBTable>
-				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="113" Id="rvR_jvaGAqDOAQbe" MetaModelElement="tIG_jvaGAqDOAQbT" Model="tIG_jvaGAqDOAQbT" ModelElementNameAlignment="9" Name="CATEGORY" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="272" X="20" Y="469" ZOrder="16">
+				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="147" Id="cwnoTvaGAqDOAQg7" MetaModelElement="o8roTvaGAqDOAQgx" Model="o8roTvaGAqDOAQgx" ModelElementNameAlignment="9" Name="STEP_INGREDIENT" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="261" X="725" Y="652" ZOrder="4">
 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
 						<Stroke/>
 					</Line>
-					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="FreeMove" Visible="true" Width="272" X="0" Y="0"/>
+					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="FreeMove" Visible="true" Width="261" X="0" Y="0"/>
 					<FillColor Color="rgb(245, 182, 122)" Style="1" Transparency="0" Type="1"/>
 					<CompartmentFont Value="none"/>
 				</DBTable>
-				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="147" Id="hGT_jvaGAqDOAQcH" MetaModelElement="4cN_jvaGAqDOAQb9" Model="4cN_jvaGAqDOAQb9" ModelElementNameAlignment="9" Name="STEP" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="271" X="1070" Y="652" ZOrder="14">
+				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="131" Id=".iaoTvaGAqDOAQf2" MetaModelElement="m9CoTvaGAqDOAQfs" Model="m9CoTvaGAqDOAQfs" ModelElementNameAlignment="9" Name="RECIPE_STEP" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="248" X="1082" Y="260" ZOrder="6">
+					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="FreeMove" Visible="true" Width="248" X="0" Y="0"/>
+					<FillColor Color="rgb(245, 182, 122)" Style="1" Transparency="0" Type="1"/>
+					<CompartmentFont Value="none"/>
+				</DBTable>
+				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="59" Id="X7jwTvaGAqDOAQeJ" MetaModelElement="Uc9wTvaGAqDOAQeB" Model="Uc9wTvaGAqDOAQeB" ModelElementNameAlignment="9" Name="RECIPE_CATEGORY" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="201" X="405" Y="496" ZOrder="8">
+					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
+					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
+						<Stroke/>
+					</Line>
+					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="FreeMove" Visible="true" Width="201" X="0" Y="0"/>
+					<FillColor Color="rgb(245, 182, 122)" Style="1" Transparency="0" Type="1"/>
+					<CompartmentFont Value="none"/>
+				</DBTable>
+				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="110" Id="hwiwTvaGAqDOAQde" MetaModelElement="uwMwTvaGAqDOAQdU" Model="uwMwTvaGAqDOAQdU" ModelElementNameAlignment="9" Name="UOM" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="271" X="370" Y="671" ZOrder="10">
 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
 						<Stroke/>
@@ -2200,7 +2182,7 @@
 					<FillColor Color="rgb(245, 182, 122)" Style="1" Transparency="0" Type="1"/>
 					<CompartmentFont Value="none"/>
 				</DBTable>
-				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="110" Id="hwiwTvaGAqDOAQde" MetaModelElement="uwMwTvaGAqDOAQdU" Model="uwMwTvaGAqDOAQdU" ModelElementNameAlignment="9" Name="UOM" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="271" X="370" Y="671" ZOrder="10">
+				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="147" Id="hGT_jvaGAqDOAQcH" MetaModelElement="4cN_jvaGAqDOAQb9" Model="4cN_jvaGAqDOAQb9" ModelElementNameAlignment="9" Name="STEP" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="271" X="1070" Y="652" ZOrder="14">
 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
 						<Stroke/>
@@ -2209,39 +2191,21 @@
 					<FillColor Color="rgb(245, 182, 122)" Style="1" Transparency="0" Type="1"/>
 					<CompartmentFont Value="none"/>
 				</DBTable>
-				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="59" Id="X7jwTvaGAqDOAQeJ" MetaModelElement="Uc9wTvaGAqDOAQeB" Model="Uc9wTvaGAqDOAQeB" ModelElementNameAlignment="9" Name="RECIPE_CATEGORY" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="201" X="405" Y="496" ZOrder="8">
+				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="113" Id="rvR_jvaGAqDOAQbe" MetaModelElement="tIG_jvaGAqDOAQbT" Model="tIG_jvaGAqDOAQbT" ModelElementNameAlignment="9" Name="CATEGORY" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="272" X="20" Y="469" ZOrder="16">
 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
 						<Stroke/>
 					</Line>
-					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="FreeMove" Visible="true" Width="201" X="0" Y="0"/>
+					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="FreeMove" Visible="true" Width="272" X="0" Y="0"/>
 					<FillColor Color="rgb(245, 182, 122)" Style="1" Transparency="0" Type="1"/>
 					<CompartmentFont Value="none"/>
 				</DBTable>
-				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="131" Id=".iaoTvaGAqDOAQf2" MetaModelElement="m9CoTvaGAqDOAQfs" Model="m9CoTvaGAqDOAQfs" ModelElementNameAlignment="9" Name="RECIPE_STEP" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="248" X="1082" Y="260" ZOrder="6">
+				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="200" Id="7r5bjvaGAqDOAQaw" MetaModelElement="hnfrjvaGAqDOAQaY" Model="hnfrjvaGAqDOAQaY" ModelElementNameAlignment="9" Name="RECIPE" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="272" X="370" Y="226" ZOrder="18">
 					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
 					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
 						<Stroke/>
 					</Line>
-					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="FreeMove" Visible="true" Width="248" X="0" Y="0"/>
-					<FillColor Color="rgb(245, 182, 122)" Style="1" Transparency="0" Type="1"/>
-					<CompartmentFont Value="none"/>
-				</DBTable>
-				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="147" Id="cwnoTvaGAqDOAQg7" MetaModelElement="o8roTvaGAqDOAQgx" Model="o8roTvaGAqDOAQgx" ModelElementNameAlignment="9" Name="STEP_INGREDIENT" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="261" X="725" Y="652" ZOrder="4">
-					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
-					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
-						<Stroke/>
-					</Line>
-					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="FreeMove" Visible="true" Width="261" X="0" Y="0"/>
-					<FillColor Color="rgb(245, 182, 122)" Style="1" Transparency="0" Type="1"/>
-					<CompartmentFont Value="none"/>
-				</DBTable>
-				<DBTable Background="rgb(245, 182, 122)" ColSortType="0" ConnectToPoint="false" ConnectionPointType="2" CoverConnector="false" Foreground="rgb(0, 0, 0)" Height="113" Id="gyaYTvaGAqDOAQii" MetaModelElement="OgiYTvaGAqDOAQiS" Model="OgiYTvaGAqDOAQiS" ModelElementNameAlignment="9" Name="NOTE" OverrideAppearanceWithStereotypeIcon="true" ParentConnectorDTheta="0.0" ParentConnectorHeaderLength="0" ParentConnectorLineLength="0" PresentationOption="4" PrimitiveShapeType="0" RequestDefaultSize="false" RequestFitSize="false" RequestFitSizeFromCenter="false" RequestResetCaption="false" RequestResetCaptionFitWidth="false" RequestResetCaptionSize="false" RequestSetSizeOption="0" Selectable="true" ShowAllocatedFrom="0" ShowAllocatedTo="0" ShowColumnStereotypes="0" ShowColumnsMode="0" ShowStereotypeIconName="0" Width="266" X="373" Y="20" ZOrder="2">
-					<ElementFont Color="rgb(0, 0, 0)" Name="Dialog" Size="11" Style="0"/>
-					<Line Cap="0" Color="rgb(0, 0, 0)" Transparency="0" Weight="1.0">
-						<Stroke/>
-					</Line>
-					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="FreeMove" Visible="true" Width="266" X="0" Y="0"/>
+					<Caption Height="15" InternalHeight="-2147483648" InternalWidth="-2147483648" Side="FreeMove" Visible="true" Width="272" X="0" Y="0"/>
 					<FillColor Color="rgb(245, 182, 122)" Style="1" Transparency="0" Type="1"/>
 					<CompartmentFont Value="none"/>
 				</DBTable>

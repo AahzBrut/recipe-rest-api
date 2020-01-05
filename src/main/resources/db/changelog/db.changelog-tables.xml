@@ -1,0 +1,235 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet author="AahzBrut (generated)" id="1578226399977-1">
+        <createTable tableName="CATEGORY">
+            <column name="CATEGORY_ID" type="INT">
+                <constraints primaryKey="true" primaryKeyName="CATEGORY_PK"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="CREATED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-2">
+        <createTable tableName="INGREDIENT">
+            <column name="INGREDIENT_ID" type="INT">
+                <constraints primaryKey="true" primaryKeyName="INGREDIENT_PK"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="CREATED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-3">
+        <createTable tableName="NOTE">
+            <column name="NOTE_ID" type="INT">
+                <constraints primaryKey="true" primaryKeyName="NOTE_PK"/>
+            </column>
+            <column name="RECIPE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NOTE_TEXT" type="CLOB"/>
+            <column name="CREATED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-4">
+        <createTable tableName="RECIPE">
+            <column name="RECIPE_ID" type="INT">
+                <constraints primaryKey="true" primaryKeyName="RECIPE_PK"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="DIFFICULTY" type="VARCHAR(32)"/>
+            <column name="SERVINGS" type="INT"/>
+            <column name="SOURCE" type="VARCHAR(255)"/>
+            <column name="URL" type="VARCHAR(255)"/>
+            <column name="IMAGE" type="BLOB"/>
+            <column name="CREATED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-5">
+        <createTable tableName="RECIPE_CATEGORY">
+            <column name="RECIPE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CATEGORY_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-6">
+        <createTable tableName="RECIPE_STEP">
+            <column name="RECIPE_STEP_ID" type="INT">
+                <constraints primaryKey="true" primaryKeyName="RECIPE_STEP_PK"/>
+            </column>
+            <column name="RECIPE_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STEP_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORDINAL" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-7">
+        <createTable tableName="STEP">
+            <column name="STEP_ID" type="INT">
+                <constraints primaryKey="true" primaryKeyName="STEP_PK"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="PREPARATION_TIME" type="INT"/>
+            <column name="COOKING_TIME" type="INT"/>
+            <column name="CREATED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-8">
+        <createTable tableName="STEP_INGREDIENT">
+            <column name="STEP_INGREDIENT_ID" type="INT">
+                <constraints primaryKey="true" primaryKeyName="STEP_INGREDIENT_PK"/>
+            </column>
+            <column name="STEP_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INGREDIENT_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UOM_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UOM_COUNT" type="DECIMAL(19, 5)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-9">
+        <createTable tableName="UOM">
+            <column name="UOM_ID" type="INT">
+                <constraints primaryKey="true" primaryKeyName="UOM_PK"/>
+            </column>
+            <column name="CREATED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED_TIMESTAMP" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-10">
+        <createIndex indexName="FKNOTE13991_INDEX_2" tableName="NOTE">
+            <column name="RECIPE_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-11">
+        <createIndex indexName="FKRECIPE_CAT877883_INDEX_D" tableName="RECIPE_CATEGORY">
+            <column name="RECIPE_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-12">
+        <createIndex indexName="FKRECIPE_CAT985911_INDEX_D" tableName="RECIPE_CATEGORY">
+            <column name="CATEGORY_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-13">
+        <createIndex indexName="FKRECIPE_STE248350_INDEX_F" tableName="RECIPE_STEP">
+            <column name="RECIPE_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-14">
+        <createIndex indexName="FKRECIPE_STE46958_INDEX_F" tableName="RECIPE_STEP">
+            <column name="STEP_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-15">
+        <createIndex indexName="FKSTEP_INGRE322714_INDEX_4" tableName="STEP_INGREDIENT">
+            <column name="STEP_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-16">
+        <createIndex indexName="FKSTEP_INGRE3262_INDEX_4" tableName="STEP_INGREDIENT">
+            <column name="UOM_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-17">
+        <createIndex indexName="FKSTEP_INGRE351804_INDEX_4" tableName="STEP_INGREDIENT">
+            <column name="INGREDIENT_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-18">
+        <addForeignKeyConstraint baseColumnNames="RECIPE_ID" baseTableName="NOTE" constraintName="FKNOTE13991" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="RECIPE_ID" referencedTableName="RECIPE" validate="true"/>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-19">
+        <addForeignKeyConstraint baseColumnNames="RECIPE_ID" baseTableName="RECIPE_CATEGORY" constraintName="FKRECIPE_CAT877883" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="RECIPE_ID" referencedTableName="RECIPE" validate="true"/>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-20">
+        <addForeignKeyConstraint baseColumnNames="CATEGORY_ID" baseTableName="RECIPE_CATEGORY" constraintName="FKRECIPE_CAT985911" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="CATEGORY_ID" referencedTableName="CATEGORY" validate="true"/>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-21">
+        <addForeignKeyConstraint baseColumnNames="RECIPE_ID" baseTableName="RECIPE_STEP" constraintName="FKRECIPE_STE248350" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="RECIPE_ID" referencedTableName="RECIPE" validate="true"/>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-22">
+        <addForeignKeyConstraint baseColumnNames="STEP_ID" baseTableName="RECIPE_STEP" constraintName="FKRECIPE_STE46958" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="STEP_ID" referencedTableName="STEP" validate="true"/>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-23">
+        <addForeignKeyConstraint baseColumnNames="STEP_ID" baseTableName="STEP_INGREDIENT" constraintName="FKSTEP_INGRE322714" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="STEP_ID" referencedTableName="STEP" validate="true"/>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-24">
+        <addForeignKeyConstraint baseColumnNames="UOM_ID" baseTableName="STEP_INGREDIENT" constraintName="FKSTEP_INGRE3262" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="UOM_ID" referencedTableName="UOM" validate="true"/>
+    </changeSet>
+    <changeSet author="AahzBrut (generated)" id="1578226399977-25">
+        <addForeignKeyConstraint baseColumnNames="INGREDIENT_ID" baseTableName="STEP_INGREDIENT" constraintName="FKSTEP_INGRE351804" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="INGREDIENT_ID" referencedTableName="INGREDIENT" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
