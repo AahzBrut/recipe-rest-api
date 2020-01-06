@@ -1,8 +1,9 @@
 package ru.aahzbrut.reciperestapi.domain;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -15,7 +16,8 @@ import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @MappedSuperclass
 @SuperBuilder

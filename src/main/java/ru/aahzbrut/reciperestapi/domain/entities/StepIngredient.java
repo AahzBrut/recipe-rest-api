@@ -1,8 +1,9 @@
 package ru.aahzbrut.reciperestapi.domain.entities;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 
@@ -16,14 +17,15 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
-@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @SequenceGenerator(name = "default_gen", sequenceName = "STEP_INGREDIENT_SEQ", allocationSize = 1)
 @AttributeOverride(name = "id", column = @Column(name = "STEP_INGREDIENT_ID"))
 @Table(name = "STEP_INGREDIENT")
-@SuperBuilder
 public class StepIngredient extends BaseEntity {
 
     private static final long serialVersionUID = 1L;

@@ -1,9 +1,10 @@
 package ru.aahzbrut.reciperestapi.domain.entities;
 
 import lombok.Builder;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 
@@ -16,14 +17,15 @@ import javax.persistence.Table;
 import java.util.LinkedList;
 import java.util.List;
 
-@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @SequenceGenerator(name = "default_gen", sequenceName = "CATEGORY_SEQ", allocationSize = 1)
 @AttributeOverride(name = "id", column = @Column(name = "CATEGORY_ID"))
 @Table(name = "CATEGORY")
-@SuperBuilder
 public class Category extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
