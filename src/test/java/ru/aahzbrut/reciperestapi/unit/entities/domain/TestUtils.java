@@ -1,8 +1,7 @@
-package ru.aahzbrut.reciperestapi.domain.entities;
+package ru.aahzbrut.reciperestapi.unit.entities.domain;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 
 import java.lang.reflect.Method;
 import java.util.stream.Stream;

@@ -1,11 +1,11 @@
-package ru.aahzbrut.reciperestapi.domain.entities;
+package ru.aahzbrut.reciperestapi.unit.entities;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import ru.aahzbrut.reciperestapi.domain.BaseEntity;
+import ru.aahzbrut.reciperestapi.unit.entities.domain.BaseEntity;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;

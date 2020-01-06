@@ -1,17 +1,18 @@
-package ru.aahzbrut.reciperestapi.domain.entities;
+package ru.aahzbrut.reciperestapi.unit.entities.domain;
 
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import ru.aahzbrut.reciperestapi.unit.entities.UOM;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Slf4j
-class CategoryTest {
+class UOMTest {
 
     @Test
     void npeDefence() {
-        TestUtils.npeDefence(Category.class);
+        TestUtils.npeDefence(UOM.class);
         int one = 1;
         assertEquals(1, one);
     }
+
+
 }

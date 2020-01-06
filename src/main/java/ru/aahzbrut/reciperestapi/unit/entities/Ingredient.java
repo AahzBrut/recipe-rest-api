@@ -1,4 +1,4 @@
-package ru.aahzbrut.reciperestapi.domain.entities;
+package ru.aahzbrut.reciperestapi.unit.entities;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import ru.aahzbrut.reciperestapi.domain.BaseEntity;
+import ru.aahzbrut.reciperestapi.unit.entities.domain.BaseEntity;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.CascadeType;
@@ -24,10 +24,10 @@ import java.util.List;
 @NoArgsConstructor
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
-@SequenceGenerator(name = "default_gen", sequenceName = "STEP_SEQ", allocationSize = 1)
-@AttributeOverride(name = "id", column = @Column(name = "STEP_ID"))
-@Table(name = "STEP")
-public class Step extends BaseEntity {
+@SequenceGenerator(name = "default_gen", sequenceName = "INGREDIENT_SEQ", allocationSize = 1)
+@AttributeOverride(name = "id", column = @Column(name = "INGREDIENT_ID"))
+@Table(name = "INGREDIENT")
+public class Ingredient extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -37,17 +37,7 @@ public class Step extends BaseEntity {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @Column(name = "PREPARATION_TIME")
-    private Integer preparationTime;
-
-    @Column(name = "COOKING_TIME")
-    private Integer cookingTime;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "step")
-    @Builder.Default()
-    private List<RecipeStep> recipeSteps = new LinkedList<>();
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "step")
-    @Builder.Default()
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ingredient")
+    @Builder.Default
     private List<StepIngredient> stepIngredients = new LinkedList<>();
 }
