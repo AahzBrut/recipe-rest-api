@@ -1,4 +1,4 @@
-package ru.aahzbrut.reciperestapi.unit.entities.domain;
+package ru.aahzbrut.reciperestapi.domain;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
