@@ -1,15 +1,15 @@
-package ru.aahzbrut.reciperestapi.unit.entities.domain;
+package ru.aahzbrut.reciperestapi.entities.domain;
 
 import org.junit.jupiter.api.Test;
-import ru.aahzbrut.reciperestapi.unit.entities.Ingredient;
+import ru.aahzbrut.reciperestapi.domain.entities.RecipeStep;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class IngredientTest {
+class RecipeStepTest {
 
     @Test
     void npeDefence() {
-        TestUtils.npeDefence(Ingredient.class);
+        TestUtils.npeDefence(RecipeStep.class);
         int one = 1;
         assertEquals(1, one);
     }

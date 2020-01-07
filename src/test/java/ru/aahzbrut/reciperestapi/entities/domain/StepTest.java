@@ -1,7 +1,7 @@
-package ru.aahzbrut.reciperestapi.unit.entities.domain;
+package ru.aahzbrut.reciperestapi.entities.domain;
 
 import org.junit.jupiter.api.Test;
-import ru.aahzbrut.reciperestapi.unit.entities.Step;
+import ru.aahzbrut.reciperestapi.domain.entities.Step;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
