@@ -6,5 +6,6 @@ import ru.aahzbrut.reciperestapi.domain.entities.Category;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
-
+    boolean existsByName(String categoryName);
+    void deleteByName(String categoryName);
 }

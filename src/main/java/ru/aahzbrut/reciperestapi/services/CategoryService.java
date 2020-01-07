@@ -12,5 +12,4 @@ public interface CategoryService {
     void delete(CategoryRequest categoryRequest);
     void deleteById(Long categoryId);
     boolean isCategoryExists(CategoryRequest categoryRequest);
-    boolean isCategoryExists(Long categoryId);
 }

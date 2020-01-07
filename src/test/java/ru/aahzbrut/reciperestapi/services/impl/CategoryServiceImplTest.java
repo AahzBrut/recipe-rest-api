@@ -15,8 +15,12 @@ import ru.aahzbrut.reciperestapi.mappers.CategoryMapper;
 import ru.aahzbrut.reciperestapi.repositories.CategoryRepository;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -26,9 +30,11 @@ class CategoryServiceImplTest {
 
     private static final Long categoryId = 1L;
     private static final String categoryName = "Category one";
+    private static final String nonExistCategoryName = "Category two";
     private static final String categoryDescription = "The first category";
     private static final LocalDateTime createdDateTime = LocalDateTime.now();
     private static final LocalDateTime updatedDateTime = LocalDateTime.now();
+    private static final int EXPECTED_ALL_SIZE = 2;
 
     Category categoryEntity;
 
@@ -97,17 +103,42 @@ class CategoryServiceImplTest {
 
     @Test
     void getAll() {
-    }
+        //given
+        when(categoryRepository.findAll()).thenReturn(Arrays.asList(categoryEntity, categoryEntity));
 
-    @Test
-    void deleteById() {
+        //when
+        List<CategoryResponse> response = categoryService.getAllCategories();
+
+        //then
+        assertEquals(EXPECTED_ALL_SIZE, response.size());
+
+        assertEquals(categoryId, response.get(0).getId());
+        assertEquals(categoryName, response.get(0).getName());
+        assertEquals(categoryDescription, response.get(0).getDescription());
+        assertEquals(createdDateTime, response.get(0).getCreatedDateTime());
+        assertEquals(updatedDateTime, response.get(0).getUpdatedDateTime());
+
+        assertEquals(categoryId, response.get(1).getId());
+        assertEquals(categoryName, response.get(1).getName());
+        assertEquals(categoryDescription, response.get(1).getDescription());
+        assertEquals(createdDateTime, response.get(1).getCreatedDateTime());
+        assertEquals(updatedDateTime, response.get(1).getUpdatedDateTime());
+
     }
 
     @Test
     void isCategoryExists() {
-    }
+        //given
+        when(categoryRepository.existsByName(categoryName)).thenReturn(true);
+        when(categoryRepository.existsByName(nonExistCategoryName)).thenReturn(false);
 
-    @Test
-    void testIsCategoryExists() {
+        //when
+        boolean assumeExist = categoryService.isCategoryExists(categoryRequest);
+        categoryRequest.setName(nonExistCategoryName);
+        boolean assumeNotExist = categoryService.isCategoryExists(categoryRequest);
+
+        //then
+        assertTrue(assumeExist);
+        assertFalse(assumeNotExist);
     }
 }
