@@ -1,15 +1,16 @@
 package ru.aahzbrut.reciperestapi.services;
 
-import ru.aahzbrut.reciperestapi.domain.entities.Category;
+import ru.aahzbrut.reciperestapi.dto.requests.CategoryRequest;
+import ru.aahzbrut.reciperestapi.dto.responses.CategoryResponse;
 
 import java.util.List;
 
 public interface CategoryService {
-    Category getById(Long categoryId);
-    Category save(Category category);
-    List<Category> getAll();
-    void delete(Category category);
+    CategoryResponse getById(Long categoryId);
+    CategoryResponse save(CategoryRequest categoryRequest);
+    List<CategoryResponse> getAllCategories();
+    void delete(CategoryRequest categoryRequest);
     void deleteById(Long categoryId);
-    boolean isCategoryExists(Category category);
+    boolean isCategoryExists(CategoryRequest categoryRequest);
     boolean isCategoryExists(Long categoryId);
 }
