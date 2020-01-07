@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 
@@ -21,6 +22,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString(onlyExplicitlyIncluded = true)
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @SequenceGenerator(name = "default_gen", sequenceName = "CATEGORY_SEQ", allocationSize = 1)
@@ -31,9 +33,11 @@ public class Category extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "NAME")
+    @ToString.Include
     private String name;
 
     @Column(name = "DESCRIPTION")
+    @ToString.Include
     private String description;
 
     @ManyToMany(mappedBy = "categories")
