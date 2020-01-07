@@ -1,8 +1,9 @@
-package ru.aahzbrut.reciperestapi.entities.domain;
+package ru.aahzbrut.reciperestapi.domain.entities;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import ru.aahzbrut.reciperestapi.domain.BaseEntity;
+import org.junit.jupiter.api.TestInstance;
 
 import java.lang.reflect.Method;
 import java.util.stream.Stream;
@@ -10,12 +11,18 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @Slf4j
-public abstract class TestUtils {
+@TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
+public abstract class BaseTestEntity {
 
-    // Check that all Collections properties have default values (NPE defence)
+    @BeforeAll
+    protected void initTests() throws ClassNotFoundException {
+        npeDefence();
+    }
+
     @Test
-    static void npeDefence(Class<? extends BaseEntity> clazz) {
+    protected void npeDefence() throws ClassNotFoundException {
 
+        Class<?> clazz = Class.forName(this.getClass().getName().replace("Test", ""));
         Class<?> collectionType = java.util.Collection.class;
 
         Object objectUnderTest;
