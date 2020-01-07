@@ -12,6 +12,8 @@ class CategoryTest {
 
     private static final Long firstId = 1L;
     private static final Long secondId = 2L;
+    private static final String firstName = "First recipe";
+    private static final String secondName = "Second recipe";
 
     @Test
     void npeDefence() {
@@ -43,8 +45,8 @@ class CategoryTest {
 
         assertEquals(category1, category2);
 
-        category1 = Category.builder().id(firstId).name("First recipe").build();
-        category2 = Category.builder().id(firstId).name("Second recipe").build();
+        category1 = Category.builder().id(firstId).name(firstName).build();
+        category2 = Category.builder().id(firstId).name(secondName).build();
 
         assertEquals(category1, category2);
     }
