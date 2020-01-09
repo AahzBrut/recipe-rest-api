@@ -85,12 +85,12 @@ class CategoryControllerTest {
                 .andExpect(jsonPath("$.createdDateTime[5]", is(CREATED_TIME.getSecond())))
                 .andExpect(jsonPath("$.createdDateTime[6]", is(CREATED_TIME.getNano())))
                 .andExpect(jsonPath("$.updatedDateTime[0]", is(UPDATED_TIME.getYear())))
-                .andExpect(jsonPath("$.createdDateTime[1]", is(UPDATED_TIME.getMonthValue())))
-                .andExpect(jsonPath("$.createdDateTime[2]", is(UPDATED_TIME.getDayOfMonth())))
-                .andExpect(jsonPath("$.createdDateTime[3]", is(UPDATED_TIME.getHour())))
-                .andExpect(jsonPath("$.createdDateTime[4]", is(UPDATED_TIME.getMinute())))
-                .andExpect(jsonPath("$.createdDateTime[5]", is(UPDATED_TIME.getSecond())))
-                .andExpect(jsonPath("$.createdDateTime[6]", is(UPDATED_TIME.getNano())));
+                .andExpect(jsonPath("$.updatedDateTime[1]", is(UPDATED_TIME.getMonthValue())))
+                .andExpect(jsonPath("$.updatedDateTime[2]", is(UPDATED_TIME.getDayOfMonth())))
+                .andExpect(jsonPath("$.updatedDateTime[3]", is(UPDATED_TIME.getHour())))
+                .andExpect(jsonPath("$.updatedDateTime[4]", is(UPDATED_TIME.getMinute())))
+                .andExpect(jsonPath("$.updatedDateTime[5]", is(UPDATED_TIME.getSecond())))
+                .andExpect(jsonPath("$.updatedDateTime[6]", is(UPDATED_TIME.getNano())));
         verify(categoryService, times(1)).getById(ID);
         verifyNoMoreInteractions(categoryService);
     }
@@ -120,12 +120,12 @@ class CategoryControllerTest {
                 .andExpect(jsonPath("$.categories[0].createdDateTime[5]", is(CREATED_TIME.getSecond())))
                 .andExpect(jsonPath("$.categories[0].createdDateTime[6]", is(CREATED_TIME.getNano())))
                 .andExpect(jsonPath("$.categories[0].updatedDateTime[0]", is(UPDATED_TIME.getYear())))
-                .andExpect(jsonPath("$.categories[0].createdDateTime[1]", is(UPDATED_TIME.getMonthValue())))
-                .andExpect(jsonPath("$.categories[0].createdDateTime[2]", is(UPDATED_TIME.getDayOfMonth())))
-                .andExpect(jsonPath("$.categories[0].createdDateTime[3]", is(UPDATED_TIME.getHour())))
-                .andExpect(jsonPath("$.categories[0].createdDateTime[4]", is(UPDATED_TIME.getMinute())))
-                .andExpect(jsonPath("$.categories[0].createdDateTime[5]", is(UPDATED_TIME.getSecond())))
-                .andExpect(jsonPath("$.categories[0].createdDateTime[6]", is(UPDATED_TIME.getNano())));
+                .andExpect(jsonPath("$.categories[0].updatedDateTime[1]", is(UPDATED_TIME.getMonthValue())))
+                .andExpect(jsonPath("$.categories[0].updatedDateTime[2]", is(UPDATED_TIME.getDayOfMonth())))
+                .andExpect(jsonPath("$.categories[0].updatedDateTime[3]", is(UPDATED_TIME.getHour())))
+                .andExpect(jsonPath("$.categories[0].updatedDateTime[4]", is(UPDATED_TIME.getMinute())))
+                .andExpect(jsonPath("$.categories[0].updatedDateTime[5]", is(UPDATED_TIME.getSecond())))
+                .andExpect(jsonPath("$.categories[0].updatedDateTime[6]", is(UPDATED_TIME.getNano())));
         verify(categoryService, times(1)).getAllCategories();
         verifyNoMoreInteractions(categoryService);
     }
