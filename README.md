@@ -5,5 +5,5 @@
 [![Build Status](https://travis-ci.com/AahzBrut/recipe-rest-api.svg?branch=master)](https://travis-ci.com/AahzBrut/recipe-rest-api/builds)
 
 
-## Demo application built with Spring Framework.
+## Reference application built with Spring Framework.
 
