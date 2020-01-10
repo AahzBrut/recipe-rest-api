@@ -26,6 +26,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static ru.aahzbrut.reciperestapi.tools.MatcherHelpers.getLocalDateTimeAsList;
 
 class CategoryControllerTest {
 
@@ -77,20 +78,9 @@ class CategoryControllerTest {
                 .andExpect(jsonPath("$.id", equalTo(ID.intValue())))
                 .andExpect(jsonPath("$.name", is(CATEGORY_NAME)))
                 .andExpect(jsonPath("$.description", equalTo(CATEGORY_DESCRIPTION)))
-                .andExpect(jsonPath("$.createdDateTime[0]", is(CREATED_TIME.getYear())))
-                .andExpect(jsonPath("$.createdDateTime[1]", is(CREATED_TIME.getMonthValue())))
-                .andExpect(jsonPath("$.createdDateTime[2]", is(CREATED_TIME.getDayOfMonth())))
-                .andExpect(jsonPath("$.createdDateTime[3]", is(CREATED_TIME.getHour())))
-                .andExpect(jsonPath("$.createdDateTime[4]", is(CREATED_TIME.getMinute())))
-                .andExpect(jsonPath("$.createdDateTime[5]", is(CREATED_TIME.getSecond())))
-                .andExpect(jsonPath("$.createdDateTime[6]", is(CREATED_TIME.getNano())))
-                .andExpect(jsonPath("$.updatedDateTime[0]", is(UPDATED_TIME.getYear())))
-                .andExpect(jsonPath("$.updatedDateTime[1]", is(UPDATED_TIME.getMonthValue())))
-                .andExpect(jsonPath("$.updatedDateTime[2]", is(UPDATED_TIME.getDayOfMonth())))
-                .andExpect(jsonPath("$.updatedDateTime[3]", is(UPDATED_TIME.getHour())))
-                .andExpect(jsonPath("$.updatedDateTime[4]", is(UPDATED_TIME.getMinute())))
-                .andExpect(jsonPath("$.updatedDateTime[5]", is(UPDATED_TIME.getSecond())))
-                .andExpect(jsonPath("$.updatedDateTime[6]", is(UPDATED_TIME.getNano())));
+                .andExpect(jsonPath("$.createdDateTime", is(getLocalDateTimeAsList(CREATED_TIME))))
+                .andExpect(jsonPath("$.updatedDateTime", is(getLocalDateTimeAsList(UPDATED_TIME))));
+
         verify(categoryService, times(1)).getById(ID);
         verifyNoMoreInteractions(categoryService);
     }
@@ -112,20 +102,9 @@ class CategoryControllerTest {
                 .andExpect(jsonPath("$.categories[0].id", is(ID.intValue())))
                 .andExpect(jsonPath("$.categories[0].name", is(CATEGORY_NAME)))
                 .andExpect(jsonPath("$.categories[0].description", is(CATEGORY_DESCRIPTION)))
-                .andExpect(jsonPath("$.categories[0].createdDateTime[0]", is(CREATED_TIME.getYear())))
-                .andExpect(jsonPath("$.categories[0].createdDateTime[1]", is(CREATED_TIME.getMonthValue())))
-                .andExpect(jsonPath("$.categories[0].createdDateTime[2]", is(CREATED_TIME.getDayOfMonth())))
-                .andExpect(jsonPath("$.categories[0].createdDateTime[3]", is(CREATED_TIME.getHour())))
-                .andExpect(jsonPath("$.categories[0].createdDateTime[4]", is(CREATED_TIME.getMinute())))
-                .andExpect(jsonPath("$.categories[0].createdDateTime[5]", is(CREATED_TIME.getSecond())))
-                .andExpect(jsonPath("$.categories[0].createdDateTime[6]", is(CREATED_TIME.getNano())))
-                .andExpect(jsonPath("$.categories[0].updatedDateTime[0]", is(UPDATED_TIME.getYear())))
-                .andExpect(jsonPath("$.categories[0].updatedDateTime[1]", is(UPDATED_TIME.getMonthValue())))
-                .andExpect(jsonPath("$.categories[0].updatedDateTime[2]", is(UPDATED_TIME.getDayOfMonth())))
-                .andExpect(jsonPath("$.categories[0].updatedDateTime[3]", is(UPDATED_TIME.getHour())))
-                .andExpect(jsonPath("$.categories[0].updatedDateTime[4]", is(UPDATED_TIME.getMinute())))
-                .andExpect(jsonPath("$.categories[0].updatedDateTime[5]", is(UPDATED_TIME.getSecond())))
-                .andExpect(jsonPath("$.categories[0].updatedDateTime[6]", is(UPDATED_TIME.getNano())));
+                .andExpect(jsonPath("$.categories[0].createdDateTime", is(getLocalDateTimeAsList(CREATED_TIME))))
+                .andExpect(jsonPath("$.categories[0].updatedDateTime", is(getLocalDateTimeAsList(UPDATED_TIME))));
+
         verify(categoryService, times(1)).getAllCategories();
         verifyNoMoreInteractions(categoryService);
     }
