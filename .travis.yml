@@ -1,5 +1,5 @@
 language: java
 os: linux
 arch: amd64
-script: "mvn clean test"
+script: "mvn clean test compile"
 after_success: "mvn coveralls:report"
