@@ -10,6 +10,7 @@ import ru.aahzbrut.reciperestapi.mappers.CategoryMapper;
 import ru.aahzbrut.reciperestapi.repositories.CategoryRepository;
 import ru.aahzbrut.reciperestapi.services.CategoryService;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +41,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Transactional
     public CategoryResponse save(CategoryRequest categoryRequest) {
         log.debug(START + getCurrentMethodName());
 
@@ -70,6 +72,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Transactional
     public void deleteById(Long categoryId) {
         log.debug(START + getCurrentMethodName());
 
@@ -90,6 +93,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Transactional
     public void delete(CategoryRequest categoryRequest) {
         log.debug(START + getCurrentMethodName());
 

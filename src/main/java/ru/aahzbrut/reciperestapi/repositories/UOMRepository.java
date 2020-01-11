@@ -6,4 +6,5 @@ import ru.aahzbrut.reciperestapi.domain.entities.UOM;
 
 @Repository
 public interface UOMRepository extends JpaRepository<UOM, Long> {
+    UOM getFirstByName(String uomName);
 }
