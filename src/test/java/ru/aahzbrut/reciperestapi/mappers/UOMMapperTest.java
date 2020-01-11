@@ -58,4 +58,25 @@ class UOMMapperTest {
         assertEquals(NULL, uom.getCreatedDateTime());
         assertEquals(NULL, uom.getUpdatedDateTime());
     }
+
+    @Test
+    void uomResponseToUOM() {
+        //given
+        UOMResponse uomResponse = new UOMResponse();
+        uomResponse.setId(UOM_ID);
+        uomResponse.setName(UOM_NAME);
+        uomResponse.setDescription(UOM_DESCRIPTION);
+        uomResponse.setCreatedDateTime(CREATED_DATETIME);
+        uomResponse.setCreatedDateTime(UPDATED_DATETIME);
+
+        //when
+        UOM uom = uomMapper.uomResponseToUOM(uomResponse);
+
+        //then
+        assertEquals(UOM_ID, uom.getId());
+        assertEquals(UOM_NAME, uom.getName());
+        assertEquals(UOM_DESCRIPTION, uom.getDescription());
+        assertEquals(NULL, uom.getCreatedDateTime());
+        assertEquals(NULL, uom.getUpdatedDateTime());
+    }
 }

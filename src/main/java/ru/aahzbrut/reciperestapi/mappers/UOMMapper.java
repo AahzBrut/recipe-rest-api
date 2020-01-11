@@ -1,6 +1,7 @@
 package ru.aahzbrut.reciperestapi.mappers;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import ru.aahzbrut.reciperestapi.domain.entities.UOM;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
@@ -16,4 +17,7 @@ public interface UOMMapper {
 
     UOM uomRequestToUOM(UOMRequest uomRequest);
 
+    @Mapping(target = "createdDateTime", ignore = true)
+    @Mapping(target = "updatedDateTime", ignore = true)
+    UOM uomResponseToUOM(UOMResponse uomResponse);
 }
