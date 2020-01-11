@@ -24,11 +24,13 @@ import static ru.aahzbrut.reciperestapi.utils.ReflectionUtils.getCurrentMethodNa
 @RestController
 public class CategoryController {
 
+    public static final String API_V1_CATEGORY_BY_ID = "/api/v1/categories/{id}";
+    public static final String API_V1_ALL_CATEGORIES = "/api/v1/categories";
     private final CategoryService categoryService;
 
     @ApiOperation(value = "Get Category by id")
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = "/api/v1/categories/{id}",
+    @GetMapping(value = API_V1_CATEGORY_BY_ID,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public CategoryResponse getCategoryById(@PathVariable long id) {
         log.info(START + getCurrentMethodName());
@@ -41,7 +43,7 @@ public class CategoryController {
 
     @ApiOperation(value = "Get all Categories")
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = "/api/v1/categories",
+    @GetMapping(value = API_V1_ALL_CATEGORIES,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public CategoryList getAllCategories() {
         log.info(START + getCurrentMethodName());

@@ -26,6 +26,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static ru.aahzbrut.reciperestapi.controllers.v1.CategoryController.API_V1_ALL_CATEGORIES;
+import static ru.aahzbrut.reciperestapi.controllers.v1.CategoryController.API_V1_CATEGORY_BY_ID;
 import static ru.aahzbrut.reciperestapi.tools.MatcherHelpers.getLocalDateTimeAsList;
 
 class CategoryControllerTest {
@@ -70,7 +72,7 @@ class CategoryControllerTest {
         when(categoryService.getById(anyLong())).thenReturn(categoryResponse);
 
         //then
-        mockMvc.perform(get("/api/v1/categories/{id}", ID)
+        mockMvc.perform(get(API_V1_CATEGORY_BY_ID, ID)
                 .contentType(APPLICATION_JSON)
                 .accept(APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -93,7 +95,7 @@ class CategoryControllerTest {
         when(categoryService.getAllCategories()).thenReturn(Collections.singletonList(categoryResponse));
 
         //then
-        mockMvc.perform(get("/api/v1/categories")
+        mockMvc.perform(get(API_V1_ALL_CATEGORIES)
                 .contentType(APPLICATION_JSON)
                 .accept(APPLICATION_JSON))
                 .andExpect(status().isOk())

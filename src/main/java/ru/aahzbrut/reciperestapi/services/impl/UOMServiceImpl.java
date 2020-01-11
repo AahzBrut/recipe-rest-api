@@ -66,6 +66,7 @@ public class UOMServiceImpl implements UOMService {
     }
 
     @Override
+    @Transactional
     public UOMResponse createUom(UOMRequest uomRequest) {
         log.debug(START + getCurrentMethodName());
 
@@ -81,6 +82,7 @@ public class UOMServiceImpl implements UOMService {
     }
 
     @Override
+    @Transactional
     public UOMResponse updateUom(UOMResponse uomResponse) {
         log.debug(START + getCurrentMethodName());
 
