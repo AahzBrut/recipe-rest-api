@@ -22,13 +22,12 @@ class UOMMapperTest {
     @Test
     void uomToUomResponse() {
         //given
-        UOM uom = UOM.builder()
-                .id(UOM_ID)
-                .name(UOM_NAME)
-                .description(UOM_DESCRIPTION)
-                .createdDateTime(CREATED_DATETIME)
-                .updatedDateTime(UPDATED_DATETIME)
-                .build();
+        UOM uom = new UOM();
+        uom.setId(UOM_ID);
+        uom.setName(UOM_NAME);
+        uom.setDescription(UOM_DESCRIPTION);
+        uom.setCreatedDateTime(CREATED_DATETIME);
+        uom.setUpdatedDateTime(UPDATED_DATETIME);
 
         //when
         UOMResponse uomResponse = uomMapper.uomToUomResponse(uom);
