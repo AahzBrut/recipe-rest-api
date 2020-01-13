@@ -58,13 +58,12 @@ class CategoryServiceImplTest {
     void setUp() {
         MockitoAnnotations.initMocks(categoryService);
 
-        categoryEntity = Category.builder()
-                .id(categoryId)
-                .name(categoryName)
-                .description(categoryDescription)
-                .createdDateTime(createdDateTime)
-                .updatedDateTime(updatedDateTime)
-                .build();
+        categoryEntity = new Category();
+        categoryEntity.setId(categoryId);
+        categoryEntity.setName(categoryName);
+        categoryEntity.setDescription(categoryDescription);
+        categoryEntity.setCreatedDateTime(createdDateTime);
+        categoryEntity.setUpdatedDateTime(updatedDateTime);
 
         categoryRequest = new CategoryRequest();
         categoryRequest.setName(categoryName);

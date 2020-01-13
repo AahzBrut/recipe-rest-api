@@ -17,28 +17,40 @@ class CategoryTest extends BaseTestEntity {
     @Test
     void equalsTest() {
 
-        Category category1 = Category.builder().id(firstId).build();
-        Category category2 = Category.builder().id(secondId).build();
+        Category category1 = new Category();
+        category1.setId(firstId);
+        Category category2 = new Category();
+        category2.setId(secondId);
 
         assertNotEquals(category1, category2);
 
-        category1 = Category.builder().id(null).build();
-        category2 = Category.builder().id(secondId).build();
+        category1 = new Category();
+        category1.setId(null);
+        category2 = new Category();
+        category2.setId(secondId);
 
         assertNotEquals(category1, category2);
 
-        category1 = Category.builder().id(firstId).build();
-        category2 = Category.builder().id(null).build();
+        category1 = new Category();
+        category1.setId(firstId);
+        category2 = new Category();
+        category2.setId(null);
 
         assertNotEquals(category1, category2);
 
-        category1 = Category.builder().id(firstId).build();
-        category2 = Category.builder().id(firstId).build();
+        category1 = new Category();
+        category1.setId(firstId);
+        category2 = new Category();
+        category2.setId(firstId);
 
         assertEquals(category1, category2);
 
-        category1 = Category.builder().id(firstId).name(firstName).build();
-        category2 = Category.builder().id(firstId).name(secondName).build();
+        category1 = new Category();
+        category1.setId(firstId);
+        category1.setName(firstName);
+        category2 = new Category();
+        category2.setId(firstId);
+        category2.setName(secondName);
 
         assertEquals(category1, category2);
     }

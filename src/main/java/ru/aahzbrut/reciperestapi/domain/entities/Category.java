@@ -1,12 +1,10 @@
 package ru.aahzbrut.reciperestapi.domain.entities;
 
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 
 import javax.persistence.AttributeOverride;
@@ -23,7 +21,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @ToString(onlyExplicitlyIncluded = true)
-@SuperBuilder
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @SequenceGenerator(name = "default_gen", sequenceName = "CATEGORY_SEQ", allocationSize = 1)
 @AttributeOverride(name = "id", column = @Column(name = "CATEGORY_ID"))
@@ -41,6 +38,5 @@ public class Category extends BaseEntity {
     private String description;
 
     @ManyToMany(mappedBy = "categories")
-    @Builder.Default
     private List<Recipe> recipes = new LinkedList<>();
 }

@@ -4,7 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -20,7 +19,6 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @MappedSuperclass
-@SuperBuilder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public abstract class BaseEntity implements Serializable {
 

@@ -1,11 +1,9 @@
 package ru.aahzbrut.reciperestapi.domain.entities;
 
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 import ru.aahzbrut.reciperestapi.domain.Difficulty;
 
@@ -29,7 +27,6 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@SuperBuilder
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @SequenceGenerator(name = "default_gen", sequenceName = "RECIPE_SEQ", allocationSize = 1)
 @AttributeOverride(name = "id", column = @Column(name = "RECIPE_ID"))
@@ -59,21 +56,17 @@ public class Recipe extends BaseEntity {
 
     @Lob
     @Column(name = "IMAGE")
-    @Builder.Default
     private byte[] image = new byte[0];
 
     @ManyToMany
     @JoinTable(name = "RECIPE_CATEGORY",
             joinColumns = {@JoinColumn(name = "RECIPE_ID")},
             inverseJoinColumns = {@JoinColumn(name = "CATEGORY_ID")})
-    @Builder.Default()
     private List<Category> categories = new LinkedList<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    @Builder.Default()
     private List<Note> notes = new LinkedList<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    @Builder.Default()
     private List<RecipeStep> recipeSteps = new LinkedList<>();
 }

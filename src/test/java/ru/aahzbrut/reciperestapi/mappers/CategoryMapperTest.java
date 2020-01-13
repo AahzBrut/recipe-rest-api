@@ -22,13 +22,12 @@ class CategoryMapperTest {
     void categoryToCategoryResponse() {
 
         //given
-        Category category = Category.builder()
-                .id(categoryId)
-                .name(categoryName)
-                .description(categoryDescription)
-                .createdDateTime(createdDateTime)
-                .updatedDateTime(updatedDateTime)
-                .build();
+        Category category = new Category();
+        category.setId(categoryId);
+        category.setName(categoryName);
+        category.setDescription(categoryDescription);
+        category.setCreatedDateTime(createdDateTime);
+        category.setUpdatedDateTime(updatedDateTime);
 
         //when
         CategoryResponse categoryResponse = categoryMapper.categoryToCategoryResponse(category);
