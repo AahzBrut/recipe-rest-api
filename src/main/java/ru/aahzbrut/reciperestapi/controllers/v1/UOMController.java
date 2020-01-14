@@ -33,7 +33,6 @@ public class UOMController {
     public static final String API_V1_ALL_UOMS = "/api/v1/uoms";
     public static final String API_V1_UOM_BY_ID = "/api/v1/uoms/{id}";
     public static final String API_V1_UOM_SAVE = "/api/v1/uoms/save";
-    public static final String API_V1_UOM_CREATE = "/api/v1/uoms/create";
 
     private final UOMService uomService;
 
@@ -80,7 +79,7 @@ public class UOMController {
 
     @ApiOperation(value = "Create new UOM")
     @ResponseStatus(OK)
-    @PostMapping(value = API_V1_UOM_CREATE,
+    @PostMapping(value = API_V1_ALL_UOMS,
             consumes = APPLICATION_JSON_VALUE,
             produces = APPLICATION_JSON_VALUE)
     public UOMResponse createUom(@RequestBody UOMRequest uomRequest) {

@@ -35,7 +35,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static ru.aahzbrut.reciperestapi.controllers.v1.UOMController.API_V1_ALL_UOMS;
 import static ru.aahzbrut.reciperestapi.controllers.v1.UOMController.API_V1_UOM_BY_ID;
-import static ru.aahzbrut.reciperestapi.controllers.v1.UOMController.API_V1_UOM_CREATE;
 import static ru.aahzbrut.reciperestapi.controllers.v1.UOMController.API_V1_UOM_SAVE;
 import static ru.aahzbrut.reciperestapi.tools.MatcherHelpers.getLocalDateTimeAsList;
 
@@ -192,7 +191,7 @@ class UOMControllerTest {
         when(uomService.createUom(any())).thenReturn(uomResponse);
 
         //then
-        mockMvc.perform(post(API_V1_UOM_CREATE)
+        mockMvc.perform(post(API_V1_ALL_UOMS)
                 .accept(APPLICATION_JSON)
                 .content(parameter)
                 .contentType(APPLICATION_JSON))

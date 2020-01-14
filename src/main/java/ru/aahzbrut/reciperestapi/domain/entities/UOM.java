@@ -4,12 +4,13 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +18,10 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
-@SequenceGenerator(name = "default_gen", sequenceName = "UOM_SEQ", allocationSize = 1)
+@GenericGenerator(
+        name = "default_gen",
+        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+        parameters = {@Parameter(name="sequence_name", value = "UOM_SEQ")})
 @AttributeOverride(name = "id", column = @Column(name = "UOM_ID"))
 @Table(name = "UOM")
 public class UOM extends BaseEntity {

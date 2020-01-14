@@ -5,15 +5,18 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import ru.aahzbrut.reciperestapi.dto.requests.CategoryRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.CategoryList;
 import ru.aahzbrut.reciperestapi.dto.responses.CategoryResponse;
 import ru.aahzbrut.reciperestapi.services.CategoryService;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static ru.aahzbrut.reciperestapi.utils.DebugStrings.FINISH;
 import static ru.aahzbrut.reciperestapi.utils.DebugStrings.START;
 import static ru.aahzbrut.reciperestapi.utils.ReflectionUtils.getCurrentMethodName;
@@ -31,7 +34,7 @@ public class CategoryController {
     @ApiOperation(value = "Get Category by id")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = API_V1_CATEGORY_BY_ID,
-            produces = MediaType.APPLICATION_JSON_VALUE)
+            produces = APPLICATION_JSON_VALUE)
     public CategoryResponse getCategoryById(@PathVariable long id) {
         log.info(START + getCurrentMethodName());
 
@@ -44,7 +47,7 @@ public class CategoryController {
     @ApiOperation(value = "Get all Categories")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = API_V1_ALL_CATEGORIES,
-            produces = MediaType.APPLICATION_JSON_VALUE)
+            produces = APPLICATION_JSON_VALUE)
     public CategoryList getAllCategories() {
         log.info(START + getCurrentMethodName());
 
@@ -54,5 +57,20 @@ public class CategoryController {
         log.info(FINISH + getCurrentMethodName());
         return response;
     }
+
+    @ApiOperation(value = "Create new category")
+    @ResponseStatus(HttpStatus.OK)
+    @PostMapping(value = API_V1_ALL_CATEGORIES,
+            consumes = APPLICATION_JSON_VALUE,
+            produces = APPLICATION_JSON_VALUE)
+    public CategoryResponse createNewCategory(@RequestBody CategoryRequest categoryRequest) {
+        log.info(START + getCurrentMethodName());
+
+        CategoryResponse response = categoryService.save(categoryRequest);
+
+        log.info(FINISH + getCurrentMethodName());
+        return response;
+    }
+
 
 }
