@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 
 import javax.persistence.AttributeOverride;
@@ -23,10 +21,6 @@ import java.util.List;
 @NoArgsConstructor
 @ToString(onlyExplicitlyIncluded = true)
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
-@GenericGenerator(
-        name = "default_gen",
-        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-        parameters = {@Parameter(name="sequence_name", value = "CATEGORY_SEQ")})
 @AttributeOverride(name = "id", column = @Column(name = "CATEGORY_ID"))
 @Table(name = "CATEGORY")
 public class Category extends BaseEntity {
