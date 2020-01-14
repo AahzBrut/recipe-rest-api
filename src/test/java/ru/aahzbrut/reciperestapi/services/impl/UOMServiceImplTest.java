@@ -158,7 +158,7 @@ class UOMServiceImplTest {
         // given
 
         // when
-        when(uomRepository.save(any())).thenReturn(uom);
+        when(uomRepository.saveAndFlush(any())).thenReturn(uom);
         UOMResponse response = uomService.createUom(uomRequest);
 
         // then
@@ -168,7 +168,7 @@ class UOMServiceImplTest {
         assertEquals(CREATED_DATE_TIME, response.getCreatedDateTime());
         assertEquals(UPDATED_DATE_TIME, response.getUpdatedDateTime());
 
-        verify(uomRepository, times(1)).save(any());
+        verify(uomRepository, times(1)).saveAndFlush(any());
         verify(uomMapper, times(1)).uomRequestToUOM(any());
         verify(uomMapper, times(1)).uomToUomResponse(any());
         verifyNoMoreInteractions(uomRepository);

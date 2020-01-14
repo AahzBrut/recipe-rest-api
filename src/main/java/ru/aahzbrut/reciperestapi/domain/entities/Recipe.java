@@ -4,6 +4,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 import ru.aahzbrut.reciperestapi.domain.Difficulty;
 
@@ -18,7 +20,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.util.LinkedList;
 import java.util.List;
@@ -28,7 +29,10 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
-@SequenceGenerator(name = "default_gen", sequenceName = "RECIPE_SEQ", allocationSize = 1)
+@GenericGenerator(
+        name = "default_gen",
+        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+        parameters = {@Parameter(name="sequence_name", value = "RECIPE_SEQ")})
 @AttributeOverride(name = "id", column = @Column(name = "RECIPE_ID"))
 @Table(name = "RECIPE")
 public class Recipe extends BaseEntity {

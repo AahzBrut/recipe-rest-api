@@ -96,7 +96,7 @@ class CategoryServiceImplTest {
     @Test
     void save() {
         //given
-        when(categoryRepository.save(any(Category.class))).thenReturn(categoryEntity);
+        when(categoryRepository.saveAndFlush(any())).thenReturn(categoryEntity);
 
         //when
         CategoryResponse response = categoryService.save(categoryRequest);
@@ -108,9 +108,9 @@ class CategoryServiceImplTest {
         assertEquals(createdDateTime, response.getCreatedDateTime());
         assertEquals(updatedDateTime, response.getUpdatedDateTime());
 
-        verify(categoryRepository, times(1)).save(any());
-        verify(categoryMapper, times(1)).categoryRequestToCategory(any());
-        verify(categoryMapper, times(1)).categoryToCategoryResponse(any());
+        verify(categoryRepository).saveAndFlush(any());
+        verify(categoryMapper).categoryRequestToCategory(any());
+        verify(categoryMapper).categoryToCategoryResponse(any());
         verifyNoMoreInteractions(categoryRepository);
         verifyNoMoreInteractions(categoryMapper);
     }

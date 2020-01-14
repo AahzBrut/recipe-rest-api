@@ -72,7 +72,7 @@ public class UOMServiceImpl implements UOMService {
 
         UOM newUom = uomMapper.uomRequestToUOM(uomRequest);
 
-        newUom = uomRepository.save(newUom);
+        newUom = uomRepository.saveAndFlush(newUom);
 
         UOMResponse result = uomMapper.uomToUomResponse(newUom);
         log.trace(UOM_TRACE + result);

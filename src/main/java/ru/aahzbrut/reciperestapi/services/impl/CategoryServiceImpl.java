@@ -48,7 +48,7 @@ public class CategoryServiceImpl implements CategoryService {
         Category categoryEntity = categoryMapper.categoryRequestToCategory(categoryRequest);
         log.trace("Category before save: " + categoryEntity.toString());
 
-        categoryEntity = categoryRepository.save(categoryEntity);
+        categoryEntity = categoryRepository.saveAndFlush(categoryEntity);
         log.trace("Category after save: " + categoryEntity.toString());
 
         CategoryResponse categoryResponse = categoryMapper.categoryToCategoryResponse(categoryEntity);
