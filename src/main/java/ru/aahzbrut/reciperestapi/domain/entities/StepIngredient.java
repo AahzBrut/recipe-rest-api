@@ -4,8 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 
 import javax.persistence.AttributeOverride;
@@ -22,10 +20,6 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
-@GenericGenerator(
-        name = "default_gen",
-        strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-        parameters = {@Parameter(name="sequence_name", value = "STEP_INGREDIENT_SEQ")})
 @AttributeOverride(name = "id", column = @Column(name = "STEP_INGREDIENT_ID"))
 @Table(name = "STEP_INGREDIENT")
 public class StepIngredient extends BaseEntity {
