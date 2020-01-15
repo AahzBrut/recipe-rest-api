@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,6 +43,17 @@ public class CategoryController {
 
         log.info(FINISH + getCurrentMethodName());
         return response;
+    }
+
+    @ApiOperation(value = "Delete Category by id")
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping(value = API_V1_CATEGORY_BY_ID)
+    public void deleteCategoryById(@PathVariable long id) {
+        log.info(START + getCurrentMethodName());
+
+        categoryService.deleteById(id);
+
+        log.info(FINISH + getCurrentMethodName());
     }
 
     @ApiOperation(value = "Get all Categories")

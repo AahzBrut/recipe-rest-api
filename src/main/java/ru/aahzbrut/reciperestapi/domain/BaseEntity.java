@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -24,6 +25,7 @@ import static org.hibernate.id.enhanced.SequenceStyleGenerator.CONFIG_SEQUENCE_P
 @Setter
 @NoArgsConstructor
 @MappedSuperclass
+@ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public abstract class BaseEntity implements Serializable {
 

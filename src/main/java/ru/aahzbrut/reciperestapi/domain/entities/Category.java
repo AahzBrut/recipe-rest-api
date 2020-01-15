@@ -19,7 +19,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString(onlyExplicitlyIncluded = true)
+@ToString(callSuper = true, onlyExplicitlyIncluded = true)
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @AttributeOverride(name = "id", column = @Column(name = "CATEGORY_ID"))
 @Table(name = "CATEGORY")
