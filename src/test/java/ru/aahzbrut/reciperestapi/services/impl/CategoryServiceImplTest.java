@@ -6,12 +6,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.aahzbrut.reciperestapi.domain.entities.Category;
 import ru.aahzbrut.reciperestapi.dto.requests.CategoryRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.CategoryResponse;
-import ru.aahzbrut.reciperestapi.mappers.CategoryMapper;
 import ru.aahzbrut.reciperestapi.repositories.CategoryRepository;
 
 import java.time.LocalDateTime;
@@ -24,7 +22,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
@@ -46,10 +43,6 @@ class CategoryServiceImplTest {
 
     @Mock
     CategoryRepository categoryRepository;
-
-    @SuppressWarnings("unused")
-    @Spy
-    CategoryMapper categoryMapper = CategoryMapper.INSTANCE;
 
     @InjectMocks
     CategoryServiceImpl categoryService;
@@ -88,9 +81,7 @@ class CategoryServiceImplTest {
         assertEquals(updatedDateTime, response.getUpdatedDateTime());
 
         verify(categoryRepository, times(1)).getOne(categoryId);
-        verify(categoryMapper, times(1)).categoryToCategoryResponse(any());
         verifyNoMoreInteractions(categoryRepository);
-        verifyNoMoreInteractions(categoryMapper);
     }
 
     @Test
@@ -109,10 +100,7 @@ class CategoryServiceImplTest {
         assertEquals(updatedDateTime, response.getUpdatedDateTime());
 
         verify(categoryRepository).saveAndFlush(any());
-        verify(categoryMapper).categoryRequestToCategory(any());
-        verify(categoryMapper).categoryToCategoryResponse(any());
         verifyNoMoreInteractions(categoryRepository);
-        verifyNoMoreInteractions(categoryMapper);
     }
 
     @Test
@@ -139,9 +127,7 @@ class CategoryServiceImplTest {
         assertEquals(updatedDateTime, response.get(1).getUpdatedDateTime());
 
         verify(categoryRepository, times(1)).findAll();
-        verify(categoryMapper, times(EXPECTED_ALL_SIZE)).categoryToCategoryResponse(any());
         verifyNoMoreInteractions(categoryRepository);
-        verifyNoMoreInteractions(categoryMapper);
     }
 
     @Test
@@ -161,7 +147,6 @@ class CategoryServiceImplTest {
 
         verify(categoryRepository, times(2)).existsByName(any());
         verifyNoMoreInteractions(categoryRepository);
-        verifyNoInteractions(categoryMapper);
     }
 
     @Test

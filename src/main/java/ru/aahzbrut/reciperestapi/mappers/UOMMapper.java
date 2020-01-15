@@ -2,22 +2,24 @@ package ru.aahzbrut.reciperestapi.mappers;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
+import org.mapstruct.Mappings;
 import ru.aahzbrut.reciperestapi.domain.entities.UOM;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
 
 @Mapper
-@SuppressWarnings("squid:S1214")
 public interface UOMMapper {
-
-    UOMMapper INSTANCE = Mappers.getMapper(UOMMapper.class);
 
     UOMResponse uomToUomResponse(UOM uom);
 
-    UOM uomRequestToUOM(UOMRequest uomRequest);
+    @Mappings(value = {
+            @Mapping(target = "id", ignore = true),
+            @Mapping(target = "createdDateTime", ignore = true),
+            @Mapping(target = "updatedDateTime", ignore = true)})
+    UOM from(UOMRequest uomRequest);
 
-    @Mapping(target = "createdDateTime", ignore = true)
-    @Mapping(target = "updatedDateTime", ignore = true)
-    UOM uomResponseToUOM(UOMResponse uomResponse);
+    @Mappings(value = {
+            @Mapping(target = "createdDateTime", ignore = true),
+            @Mapping(target = "updatedDateTime", ignore = true)})
+    UOM from(UOMResponse uomResponse);
 }

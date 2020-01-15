@@ -1,6 +1,7 @@
 package ru.aahzbrut.reciperestapi.mappers;
 
 import org.junit.jupiter.api.Test;
+import org.mapstruct.factory.Mappers;
 import ru.aahzbrut.reciperestapi.domain.entities.UOM;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class UOMMapperTest {
 
-    private static final UOMMapper uomMapper = UOMMapper.INSTANCE;
+    private static final UOMMapper uomMapper = Mappers.getMapper(UOMMapper.class);
     private static final Long UOM_ID = 1L;
     private static final String UOM_NAME = "Barrel";
     private static final String UOM_DESCRIPTION = "Bottomless barrel";
@@ -48,7 +49,7 @@ class UOMMapperTest {
         uomRequest.setDescription(UOM_DESCRIPTION);
 
         //when
-        UOM uom = uomMapper.uomRequestToUOM(uomRequest);
+        UOM uom = uomMapper.from(uomRequest);
 
         //then
         assertEquals(NULL, uom.getId());
@@ -69,7 +70,7 @@ class UOMMapperTest {
         uomResponse.setCreatedDateTime(UPDATED_DATETIME);
 
         //when
-        UOM uom = uomMapper.uomResponseToUOM(uomResponse);
+        UOM uom = uomMapper.from(uomResponse);
 
         //then
         assertEquals(UOM_ID, uom.getId());

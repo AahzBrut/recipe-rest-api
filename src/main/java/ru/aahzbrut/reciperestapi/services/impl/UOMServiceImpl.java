@@ -2,6 +2,7 @@ package ru.aahzbrut.reciperestapi.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
 import ru.aahzbrut.reciperestapi.domain.entities.UOM;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
@@ -25,7 +26,7 @@ import static ru.aahzbrut.reciperestapi.utils.ReflectionUtils.getCurrentMethodNa
 public class UOMServiceImpl implements UOMService {
 
     private final UOMRepository uomRepository;
-    private final UOMMapper uomMapper;
+    private final UOMMapper uomMapper = Mappers.getMapper(UOMMapper.class);
 
     @Override
     public List<UOMResponse> getAllUoms() {
@@ -70,7 +71,7 @@ public class UOMServiceImpl implements UOMService {
     public UOMResponse createUom(UOMRequest uomRequest) {
         log.debug(START + getCurrentMethodName());
 
-        UOM newUom = uomMapper.uomRequestToUOM(uomRequest);
+        UOM newUom = uomMapper.from(uomRequest);
 
         newUom = uomRepository.saveAndFlush(newUom);
 
@@ -86,7 +87,7 @@ public class UOMServiceImpl implements UOMService {
     public UOMResponse updateUom(UOMResponse uomResponse) {
         log.debug(START + getCurrentMethodName());
 
-        UOM newUom = uomMapper.uomResponseToUOM(uomResponse);
+        UOM newUom = uomMapper.from(uomResponse);
 
         newUom = uomRepository.save(newUom);
 

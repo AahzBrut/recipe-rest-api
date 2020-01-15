@@ -1,6 +1,7 @@
 package ru.aahzbrut.reciperestapi.mappers;
 
 import org.junit.jupiter.api.Test;
+import org.mapstruct.factory.Mappers;
 import ru.aahzbrut.reciperestapi.domain.entities.Category;
 import ru.aahzbrut.reciperestapi.dto.responses.CategoryResponse;
 
@@ -10,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CategoryMapperTest {
 
-    private static final CategoryMapper categoryMapper = CategoryMapper.INSTANCE;
+    private static final CategoryMapper categoryMapper = Mappers.getMapper(CategoryMapper.class);
 
     private static final Long categoryId = 1L;
     private static final String categoryName = "Category one";
@@ -30,7 +31,7 @@ class CategoryMapperTest {
         category.setUpdatedDateTime(updatedDateTime);
 
         //when
-        CategoryResponse categoryResponse = categoryMapper.categoryToCategoryResponse(category);
+        CategoryResponse categoryResponse = categoryMapper.from(category);
 
         //then
         assertEquals(categoryId, categoryResponse.getId());

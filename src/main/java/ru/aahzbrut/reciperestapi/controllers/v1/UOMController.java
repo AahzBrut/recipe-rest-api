@@ -91,7 +91,7 @@ public class UOMController {
         return  result;
     }
 
-    @ApiOperation(value = "Create new UOM")
+    @ApiOperation(value = "Delete UOM by id")
     @ResponseStatus(OK)
     @DeleteMapping(value = API_V1_UOM_BY_ID,
             produces = APPLICATION_JSON_VALUE)
