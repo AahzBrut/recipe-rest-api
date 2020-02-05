@@ -10,7 +10,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.UOMList;
+import ru.aahzbrut.reciperestapi.dto.responses.UOMReponseList;
 import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
 import ru.aahzbrut.reciperestapi.services.UOMService;
 
@@ -36,7 +36,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static ru.aahzbrut.reciperestapi.controllers.v1.UOMController.API_V1_ALL_UOMS;
 import static ru.aahzbrut.reciperestapi.controllers.v1.UOMController.API_V1_UOM_BY_ID;
 import static ru.aahzbrut.reciperestapi.controllers.v1.UOMController.API_V1_UOM_SAVE;
-import static ru.aahzbrut.reciperestapi.tools.MatcherHelpers.getLocalDateTimeAsList;
 
 class UOMControllerTest {
 
@@ -58,7 +57,7 @@ class UOMControllerTest {
 
     UOMResponse uomResponse;
 
-    UOMList uomList;
+    UOMReponseList uomReponseList;
 
     @BeforeEach
     void setUp() {
@@ -70,14 +69,14 @@ class UOMControllerTest {
 
         uomResponse = initUOMResponse();
 
-        uomList = initUOMList();
+        uomReponseList = initUOMList();
     }
 
-    private static UOMList initUOMList() {
-        UOMList uomList = new UOMList();
-        uomList.setUoms(Arrays.asList(initUOMResponse(), initUOMResponse(), initUOMResponse()));
+    private static UOMReponseList initUOMList() {
+        UOMReponseList uomReponseList = new UOMReponseList();
+        uomReponseList.setUoms(Arrays.asList(initUOMResponse(), initUOMResponse(), initUOMResponse()));
 
-        return uomList;
+        return uomReponseList;
     }
 
     private static UOMResponse initUOMResponse() {
@@ -104,29 +103,29 @@ class UOMControllerTest {
         //given
 
         //when
-        when(uomService.getAllUoms()).thenReturn(uomList.getUoms());
+        when(uomService.getAllUoms()).thenReturn(uomReponseList.getUoms());
 
         //then
         mockMvc.perform(get(API_V1_ALL_UOMS)
                 .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON))
-                .andExpect(jsonPath("$.uoms", hasSize(uomList.getUoms().size())))
+                .andExpect(jsonPath("$.uoms", hasSize(uomReponseList.getUoms().size())))
                 .andExpect(jsonPath("$.uoms[0].id", is(ID.intValue())))
                 .andExpect(jsonPath("$.uoms[0].name", is(NAME)))
                 .andExpect(jsonPath("$.uoms[0].description", is(DESCRIPTION)))
-                .andExpect(jsonPath("$.uoms[0].createdDateTime", is(getLocalDateTimeAsList(CREATED_DATE_TIME))))
-                .andExpect(jsonPath("$.uoms[0].updatedDateTime", is(getLocalDateTimeAsList(UPDATED_DATE_TIME))))
+                .andExpect(jsonPath("$.uoms[0].createdDateTime", is(CREATED_DATE_TIME.toString())))
+                .andExpect(jsonPath("$.uoms[0].updatedDateTime", is(UPDATED_DATE_TIME.toString())))
                 .andExpect(jsonPath("$.uoms[1].id", is(ID.intValue())))
                 .andExpect(jsonPath("$.uoms[1].name", is(NAME)))
                 .andExpect(jsonPath("$.uoms[1].description", is(DESCRIPTION)))
-                .andExpect(jsonPath("$.uoms[1].createdDateTime", is(getLocalDateTimeAsList(CREATED_DATE_TIME))))
-                .andExpect(jsonPath("$.uoms[1].updatedDateTime", is(getLocalDateTimeAsList(UPDATED_DATE_TIME))))
+                .andExpect(jsonPath("$.uoms[1].createdDateTime", is(CREATED_DATE_TIME.toString())))
+                .andExpect(jsonPath("$.uoms[1].updatedDateTime", is(UPDATED_DATE_TIME.toString())))
                 .andExpect(jsonPath("$.uoms[2].id", is(ID.intValue())))
                 .andExpect(jsonPath("$.uoms[2].name", is(NAME)))
                 .andExpect(jsonPath("$.uoms[2].description", is(DESCRIPTION)))
-                .andExpect(jsonPath("$.uoms[2].createdDateTime", is(getLocalDateTimeAsList(CREATED_DATE_TIME))))
-                .andExpect(jsonPath("$.uoms[2].updatedDateTime", is(getLocalDateTimeAsList(UPDATED_DATE_TIME))));
+                .andExpect(jsonPath("$.uoms[2].createdDateTime", is(CREATED_DATE_TIME.toString())))
+                .andExpect(jsonPath("$.uoms[2].updatedDateTime", is(UPDATED_DATE_TIME.toString())));
 
         verify(uomService, times(1)).getAllUoms();
         verifyNoMoreInteractions(uomService);
@@ -146,8 +145,8 @@ class UOMControllerTest {
                 .andExpect(jsonPath("$.id", is(ID.intValue())))
                 .andExpect(jsonPath("$.name", is(NAME)))
                 .andExpect(jsonPath("$.description", is(DESCRIPTION)))
-                .andExpect(jsonPath("$.createdDateTime", is(getLocalDateTimeAsList(CREATED_DATE_TIME))))
-                .andExpect(jsonPath("$.updatedDateTime", is(getLocalDateTimeAsList(UPDATED_DATE_TIME))));
+                .andExpect(jsonPath("$.createdDateTime", is(CREATED_DATE_TIME.toString())))
+                .andExpect(jsonPath("$.updatedDateTime", is(UPDATED_DATE_TIME.toString())));
 
         verify(uomService, times(1)).getUomById(ID);
         verifyNoMoreInteractions(uomService);
@@ -173,8 +172,8 @@ class UOMControllerTest {
                 .andExpect(jsonPath("$.id", is(ID.intValue())))
                 .andExpect(jsonPath("$.name", is(NAME)))
                 .andExpect(jsonPath("$.description", is(DESCRIPTION)))
-                .andExpect(jsonPath("$.createdDateTime", is(getLocalDateTimeAsList(CREATED_DATE_TIME))))
-                .andExpect(jsonPath("$.updatedDateTime", is(getLocalDateTimeAsList(UPDATED_DATE_TIME))));
+                .andExpect(jsonPath("$.createdDateTime", is(CREATED_DATE_TIME.toString())))
+                .andExpect(jsonPath("$.updatedDateTime", is(UPDATED_DATE_TIME.toString())));
 
         verify(uomService, times(1)).updateUom(any());
         verifyNoMoreInteractions(uomService);
@@ -200,8 +199,8 @@ class UOMControllerTest {
                 .andExpect(jsonPath("$.id", is(ID.intValue())))
                 .andExpect(jsonPath("$.name", is(NAME)))
                 .andExpect(jsonPath("$.description", is(DESCRIPTION)))
-                .andExpect(jsonPath("$.createdDateTime", is(getLocalDateTimeAsList(CREATED_DATE_TIME))))
-                .andExpect(jsonPath("$.updatedDateTime", is(getLocalDateTimeAsList(UPDATED_DATE_TIME))));
+                .andExpect(jsonPath("$.createdDateTime", is(CREATED_DATE_TIME.toString())))
+                .andExpect(jsonPath("$.updatedDateTime", is(UPDATED_DATE_TIME.toString())));
 
         verify(uomService, times(1)).createUom(any());
         verifyNoMoreInteractions(uomService);

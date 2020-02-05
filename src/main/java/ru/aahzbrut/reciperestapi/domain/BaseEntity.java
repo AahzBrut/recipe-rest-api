@@ -44,10 +44,10 @@ public abstract class BaseEntity implements Serializable {
     private Long id;
 
     @CreationTimestamp
-    @Column(name = "CREATED_TIMESTAMP")
+    @Column(name = "CREATED_TIMESTAMP", updatable = false)
     protected LocalDateTime createdDateTime;
 
     @UpdateTimestamp
     @Column(name = "MODIFIED_TIMESTAMP")
-    protected LocalDateTime updatedDateTime;
+    protected LocalDateTime modifiedDateTime;
 }

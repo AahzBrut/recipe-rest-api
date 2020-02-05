@@ -18,17 +18,15 @@ import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import java.util.LinkedList;
 import java.util.List;
 
-@Entity
+@Entity(name = "RECIPE")
 @Getter
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @AttributeOverride(name = "id", column = @Column(name = "RECIPE_ID"))
-@Table(name = "RECIPE")
 public class Recipe extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
@@ -67,4 +65,8 @@ public class Recipe extends BaseEntity {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private List<RecipeStep> recipeSteps = new LinkedList<>();
+
+    public Recipe(Long recipeId) {
+        this.setId(recipeId);
+    }
 }

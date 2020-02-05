@@ -13,15 +13,13 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-@Entity
+@Entity(name = "NOTE")
 @Getter
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @AttributeOverride(name = "id", column = @Column(name = "NOTE_ID"))
-@Table(name = "NOTE")
 public class Note extends BaseEntity {
 
     private static final long serialVersionUID = 1L;

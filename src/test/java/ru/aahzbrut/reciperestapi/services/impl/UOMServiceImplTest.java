@@ -5,9 +5,14 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import ru.aahzbrut.reciperestapi.domain.entities.UOM;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
+import ru.aahzbrut.reciperestapi.mappers.UOMMapper;
+import ru.aahzbrut.reciperestapi.mappers.UOMResponseMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.UOMMapperImpl;
+import ru.aahzbrut.reciperestapi.mappers.impl.UOMResponseMapperImpl;
 import ru.aahzbrut.reciperestapi.repositories.UOMRepository;
 
 import java.time.LocalDateTime;
@@ -34,6 +39,12 @@ class UOMServiceImplTest {
     @Mock
     UOMRepository uomRepository;
 
+    @Spy
+    UOMMapper uomMapper = new UOMMapperImpl();
+
+    @Spy
+    UOMResponseMapper uomResponseMapper = new UOMResponseMapperImpl();
+
     @InjectMocks
     UOMServiceImpl uomService;
 
@@ -58,7 +69,7 @@ class UOMServiceImplTest {
         result.setName(NAME);
         result.setDescription(DESCRIPTION);
         result.setCreatedDateTime(CREATED_DATE_TIME);
-        result.setUpdatedDateTime(UPDATED_DATE_TIME);
+        result.setModifiedDateTime(UPDATED_DATE_TIME);
 
         return result;
     }

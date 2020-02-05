@@ -6,10 +6,15 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.aahzbrut.reciperestapi.domain.entities.Category;
 import ru.aahzbrut.reciperestapi.dto.requests.CategoryRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.CategoryResponse;
+import ru.aahzbrut.reciperestapi.mappers.CategoryMapper;
+import ru.aahzbrut.reciperestapi.mappers.CategoryResponseMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.CategoryMapperImpl;
+import ru.aahzbrut.reciperestapi.mappers.impl.CategoryResponseMapperImpl;
 import ru.aahzbrut.reciperestapi.repositories.CategoryRepository;
 
 import java.time.LocalDateTime;
@@ -44,6 +49,13 @@ class CategoryServiceImplTest {
     @Mock
     CategoryRepository categoryRepository;
 
+    @Spy
+    CategoryMapper categoryMapper = new CategoryMapperImpl();
+
+    @Spy
+    CategoryResponseMapper categoryResponseMapper = new CategoryResponseMapperImpl();
+
+
     @InjectMocks
     CategoryServiceImpl categoryService;
 
@@ -56,7 +68,7 @@ class CategoryServiceImplTest {
         categoryEntity.setName(categoryName);
         categoryEntity.setDescription(categoryDescription);
         categoryEntity.setCreatedDateTime(createdDateTime);
-        categoryEntity.setUpdatedDateTime(updatedDateTime);
+        categoryEntity.setModifiedDateTime(updatedDateTime);
 
         categoryRequest = new CategoryRequest();
         categoryRequest.setName(categoryName);
