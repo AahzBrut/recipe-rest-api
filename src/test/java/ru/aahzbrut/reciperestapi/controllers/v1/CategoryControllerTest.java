@@ -33,6 +33,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static ru.aahzbrut.reciperestapi.controllers.v1.CategoryController.API_V1_ALL_CATEGORIES;
 import static ru.aahzbrut.reciperestapi.controllers.v1.CategoryController.API_V1_CATEGORY_BY_ID;
+import static ru.aahzbrut.reciperestapi.tools.DateTimeUtils.FORMATTER;
 
 class CategoryControllerTest {
 
@@ -99,8 +100,8 @@ class CategoryControllerTest {
                 .andExpect(jsonPath("$.id", equalTo(ID.intValue())))
                 .andExpect(jsonPath("$.name", is(CATEGORY_NAME)))
                 .andExpect(jsonPath("$.description", equalTo(CATEGORY_DESCRIPTION)))
-                .andExpect(jsonPath("$.createdDateTime", is(CREATED_TIME.toString())))
-                .andExpect(jsonPath("$.updatedDateTime", is(UPDATED_TIME.toString())));
+                .andExpect(jsonPath("$.createdDateTime", is(CREATED_TIME.format(FORMATTER))))
+                .andExpect(jsonPath("$.updatedDateTime", is(UPDATED_TIME.format(FORMATTER))));
 
         verify(categoryService, times(1)).getById(ID);
         verifyNoMoreInteractions(categoryService);
@@ -123,8 +124,8 @@ class CategoryControllerTest {
                 .andExpect(jsonPath("$.categories[0].id", is(ID.intValue())))
                 .andExpect(jsonPath("$.categories[0].name", is(CATEGORY_NAME)))
                 .andExpect(jsonPath("$.categories[0].description", is(CATEGORY_DESCRIPTION)))
-                .andExpect(jsonPath("$.categories[0].createdDateTime", is(CREATED_TIME.toString())))
-                .andExpect(jsonPath("$.categories[0].updatedDateTime", is(UPDATED_TIME.toString())));
+                .andExpect(jsonPath("$.categories[0].createdDateTime", is(CREATED_TIME.format(FORMATTER))))
+                .andExpect(jsonPath("$.categories[0].updatedDateTime", is(UPDATED_TIME.format(FORMATTER))));
 
         verify(categoryService, times(1)).getAllCategories();
         verifyNoMoreInteractions(categoryService);
@@ -150,8 +151,8 @@ class CategoryControllerTest {
                 .andExpect(jsonPath("$.id", equalTo(ID.intValue())))
                 .andExpect(jsonPath("$.name", is(CATEGORY_NAME)))
                 .andExpect(jsonPath("$.description", equalTo(CATEGORY_DESCRIPTION)))
-                .andExpect(jsonPath("$.createdDateTime", is(CREATED_TIME.toString())))
-                .andExpect(jsonPath("$.updatedDateTime", is(UPDATED_TIME.toString())));
+                .andExpect(jsonPath("$.createdDateTime", is(CREATED_TIME.format(FORMATTER))))
+                .andExpect(jsonPath("$.updatedDateTime", is(UPDATED_TIME.format(FORMATTER))));
 
         verify(categoryService).save(any());
         verifyNoMoreInteractions(categoryService);
