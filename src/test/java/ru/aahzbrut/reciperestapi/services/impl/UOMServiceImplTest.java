@@ -10,6 +10,9 @@ import ru.aahzbrut.reciperestapi.domain.entities.UOM;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
 import ru.aahzbrut.reciperestapi.mappers.UOMMapper;
+import ru.aahzbrut.reciperestapi.mappers.UOMResponseMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.UOMMapperImpl;
+import ru.aahzbrut.reciperestapi.mappers.impl.UOMResponseMapperImpl;
 import ru.aahzbrut.reciperestapi.repositories.UOMRepository;
 
 import java.time.LocalDateTime;
@@ -36,9 +39,11 @@ class UOMServiceImplTest {
     @Mock
     UOMRepository uomRepository;
 
-    @SuppressWarnings("unused")
     @Spy
-    UOMMapper uomMapper = UOMMapper.INSTANCE;
+    UOMMapper uomMapper = new UOMMapperImpl();
+
+    @Spy
+    UOMResponseMapper uomResponseMapper = new UOMResponseMapperImpl();
 
     @InjectMocks
     UOMServiceImpl uomService;
@@ -64,7 +69,7 @@ class UOMServiceImplTest {
         result.setName(NAME);
         result.setDescription(DESCRIPTION);
         result.setCreatedDateTime(CREATED_DATE_TIME);
-        result.setUpdatedDateTime(UPDATED_DATE_TIME);
+        result.setModifiedDateTime(UPDATED_DATE_TIME);
 
         return result;
     }
@@ -105,9 +110,7 @@ class UOMServiceImplTest {
         assertEquals(UPDATED_DATE_TIME, uomResponses.get(0).getUpdatedDateTime());
 
         verify(uomRepository, times(1)).findAll();
-        verify(uomMapper, times(uomResponses.size())).uomToUomResponse(any());
         verifyNoMoreInteractions(uomRepository);
-        verifyNoMoreInteractions(uomMapper);
 
     }
 
@@ -127,9 +130,7 @@ class UOMServiceImplTest {
         assertEquals(UPDATED_DATE_TIME, response.getUpdatedDateTime());
 
         verify(uomRepository, times(1)).getOne(anyLong());
-        verify(uomMapper, times(1)).uomToUomResponse(any());
         verifyNoMoreInteractions(uomRepository);
-        verifyNoMoreInteractions(uomMapper);
     }
 
     @Test
@@ -148,9 +149,7 @@ class UOMServiceImplTest {
         assertEquals(UPDATED_DATE_TIME, response.getUpdatedDateTime());
 
         verify(uomRepository, times(1)).getFirstByName(anyString());
-        verify(uomMapper, times(1)).uomToUomResponse(any());
         verifyNoMoreInteractions(uomRepository);
-        verifyNoMoreInteractions(uomMapper);
     }
 
     @Test
@@ -169,10 +168,7 @@ class UOMServiceImplTest {
         assertEquals(UPDATED_DATE_TIME, response.getUpdatedDateTime());
 
         verify(uomRepository, times(1)).saveAndFlush(any());
-        verify(uomMapper, times(1)).uomRequestToUOM(any());
-        verify(uomMapper, times(1)).uomToUomResponse(any());
         verifyNoMoreInteractions(uomRepository);
-        verifyNoMoreInteractions(uomMapper);
     }
 
     @Test
@@ -191,10 +187,7 @@ class UOMServiceImplTest {
         assertEquals(UPDATED_DATE_TIME, response.getUpdatedDateTime());
 
         verify(uomRepository, times(1)).save(any());
-        verify(uomMapper, times(1)).uomResponseToUOM(any());
-        verify(uomMapper, times(1)).uomToUomResponse(any());
         verifyNoMoreInteractions(uomRepository);
-        verifyNoMoreInteractions(uomMapper);
     }
 
     @Test

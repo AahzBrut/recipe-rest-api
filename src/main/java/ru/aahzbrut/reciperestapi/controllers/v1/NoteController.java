@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import ru.aahzbrut.reciperestapi.dto.requests.CategoryRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.CategoryResponse;
-import ru.aahzbrut.reciperestapi.dto.responses.CategoryResponseList;
-import ru.aahzbrut.reciperestapi.services.CategoryService;
+import ru.aahzbrut.reciperestapi.dto.requests.NoteRequest;
+import ru.aahzbrut.reciperestapi.dto.responses.NoteResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.NoteResponseList;
+import ru.aahzbrut.reciperestapi.services.NoteService;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static ru.aahzbrut.reciperestapi.utils.DebugStrings.FINISH;
@@ -23,62 +23,63 @@ import static ru.aahzbrut.reciperestapi.utils.DebugStrings.START;
 import static ru.aahzbrut.reciperestapi.utils.ReflectionUtils.getCurrentMethodName;
 
 @Slf4j
-@Api(value = "CRUD operations with Category.")
+@Api(value = "CRUD operations with Note.")
 @RequiredArgsConstructor
 @RestController
-public class CategoryController {
+public class NoteController {
 
-    public static final String API_V1_CATEGORY_BY_ID = "/api/v1/categories/{id}";
-    public static final String API_V1_ALL_CATEGORIES = "/api/v1/categories";
-    private final CategoryService categoryService;
+    private static final String API_V1_NOTE_BY_ID = "/api/v1/notes/{id}";
+    private static final String API_V1_ALL_NOTES = "/api/v1/notes";
 
-    @ApiOperation(value = "Get Category by id")
+    private final NoteService noteService;
+
+    @ApiOperation(value = "Get Note by id")
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = API_V1_CATEGORY_BY_ID,
+    @GetMapping(value = API_V1_NOTE_BY_ID,
             produces = APPLICATION_JSON_VALUE)
-    public CategoryResponse getCategoryById(@PathVariable long id) {
+    public NoteResponse getCategoryById(@PathVariable long id) {
         log.info(START + getCurrentMethodName());
 
-        CategoryResponse response = categoryService.getById(id);
+        NoteResponse response = noteService.getNoteById(id);
 
         log.info(FINISH + getCurrentMethodName());
         return response;
     }
 
-    @ApiOperation(value = "Delete Category by id")
+    @ApiOperation(value = "Delete Note by id")
     @ResponseStatus(HttpStatus.OK)
-    @DeleteMapping(value = API_V1_CATEGORY_BY_ID)
+    @DeleteMapping(value = API_V1_NOTE_BY_ID)
     public void deleteCategoryById(@PathVariable long id) {
         log.info(START + getCurrentMethodName());
 
-        categoryService.deleteById(id);
+        noteService.deleteById(id);
 
         log.info(FINISH + getCurrentMethodName());
     }
 
-    @ApiOperation(value = "Get all Categories")
+    @ApiOperation(value = "Get all Notes")
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = API_V1_ALL_CATEGORIES,
+    @GetMapping(value = API_V1_ALL_NOTES,
             produces = APPLICATION_JSON_VALUE)
-    public CategoryResponseList getAllCategories() {
+    public NoteResponseList getAllCategories() {
         log.info(START + getCurrentMethodName());
 
-        CategoryResponseList response = new CategoryResponseList();
-        response.setCategories(categoryService.getAllCategories());
+        NoteResponseList response = new NoteResponseList();
+        response.setNotes(noteService.getAllNotes());
 
         log.info(FINISH + getCurrentMethodName());
         return response;
     }
 
-    @ApiOperation(value = "Create new category")
+    @ApiOperation(value = "Create or update note")
     @ResponseStatus(HttpStatus.OK)
-    @PostMapping(value = API_V1_ALL_CATEGORIES,
+    @PostMapping(value = API_V1_ALL_NOTES,
             consumes = APPLICATION_JSON_VALUE,
             produces = APPLICATION_JSON_VALUE)
-    public CategoryResponse createNewCategory(@RequestBody CategoryRequest categoryRequest) {
+    public NoteResponse createNewCategory(@RequestBody NoteRequest noteRequest) {
         log.info(START + getCurrentMethodName());
 
-        CategoryResponse response = categoryService.save(categoryRequest);
+        NoteResponse response = noteService.updateNote(noteRequest);
 
         log.info(FINISH + getCurrentMethodName());
         return response;

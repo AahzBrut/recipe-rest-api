@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryList {
+public class CategoryResponseList {
 
     List<CategoryResponse> categories = new LinkedList<>();
 }

@@ -12,16 +12,14 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import java.math.BigDecimal;
 
-@Entity
+@Entity(name = "STEP_INGREDIENT")
 @Getter
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @AttributeOverride(name = "id", column = @Column(name = "STEP_INGREDIENT_ID"))
-@Table(name = "STEP_INGREDIENT")
 public class StepIngredient extends BaseEntity {
 
     private static final long serialVersionUID = 1L;

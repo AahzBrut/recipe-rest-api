@@ -7,6 +7,7 @@ import ru.aahzbrut.reciperestapi.domain.entities.Category;
 import ru.aahzbrut.reciperestapi.dto.requests.CategoryRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.CategoryResponse;
 import ru.aahzbrut.reciperestapi.mappers.CategoryMapper;
+import ru.aahzbrut.reciperestapi.mappers.CategoryResponseMapper;
 import ru.aahzbrut.reciperestapi.repositories.CategoryRepository;
 import ru.aahzbrut.reciperestapi.services.CategoryService;
 
@@ -25,6 +26,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
+    private final CategoryResponseMapper categoryResponseMapper;
 
     @Override
     public CategoryResponse getById(Long categoryId) {
@@ -33,7 +35,7 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = categoryRepository.getOne(categoryId);
         log.trace("Category with ID:" + categoryId + " - " + category);
 
-        CategoryResponse response = categoryMapper.categoryToCategoryResponse(category);
+        CategoryResponse response = categoryResponseMapper.from(category);
         log.trace("CategoryResponse with ID:" + categoryId + " - " + response);
 
         log.debug(FINISH + getCurrentMethodName());
@@ -45,13 +47,13 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryResponse save(CategoryRequest categoryRequest) {
         log.debug(START + getCurrentMethodName());
 
-        Category categoryEntity = categoryMapper.categoryRequestToCategory(categoryRequest);
+        Category categoryEntity = categoryMapper.from(categoryRequest);
         log.trace("Category before save: " + categoryEntity.toString());
 
         categoryEntity = categoryRepository.saveAndFlush(categoryEntity);
         log.trace("Category after save: " + categoryEntity.toString());
 
-        CategoryResponse categoryResponse = categoryMapper.categoryToCategoryResponse(categoryEntity);
+        CategoryResponse categoryResponse = categoryResponseMapper.from(categoryEntity);
         log.trace("CategoryResponse: " + categoryResponse);
 
         log.debug(FINISH + getCurrentMethodName());
@@ -63,7 +65,7 @@ public class CategoryServiceImpl implements CategoryService {
         log.debug(START + getCurrentMethodName());
 
         List<CategoryResponse> categories = categoryRepository.findAll().stream()
-                .map(categoryMapper::categoryToCategoryResponse)
+                .map(categoryResponseMapper::from)
                 .collect(Collectors.toList());
         log.trace("Categories: " + categories);
 

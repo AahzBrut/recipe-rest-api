@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -24,6 +25,7 @@ import static org.hibernate.id.enhanced.SequenceStyleGenerator.CONFIG_SEQUENCE_P
 @Setter
 @NoArgsConstructor
 @MappedSuperclass
+@ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public abstract class BaseEntity implements Serializable {
 
@@ -42,10 +44,10 @@ public abstract class BaseEntity implements Serializable {
     private Long id;
 
     @CreationTimestamp
-    @Column(name = "CREATED_TIMESTAMP")
+    @Column(name = "CREATED_TIMESTAMP", updatable = false)
     protected LocalDateTime createdDateTime;
 
     @UpdateTimestamp
     @Column(name = "MODIFIED_TIMESTAMP")
-    protected LocalDateTime updatedDateTime;
+    protected LocalDateTime modifiedDateTime;
 }

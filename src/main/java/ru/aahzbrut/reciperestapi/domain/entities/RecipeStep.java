@@ -12,15 +12,13 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-@Entity
+@Entity(name = "RECIPE_STEP")
 @Getter
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @AttributeOverride(name = "id", column = @Column(name = "RECIPE_STEP_ID"))
-@Table(name = "RECIPE_STEP")
 public class RecipeStep extends BaseEntity {
 
     private static final long serialVersionUID = 1L;

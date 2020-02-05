@@ -7,6 +7,7 @@ import ru.aahzbrut.reciperestapi.domain.entities.UOM;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
 import ru.aahzbrut.reciperestapi.mappers.UOMMapper;
+import ru.aahzbrut.reciperestapi.mappers.UOMResponseMapper;
 import ru.aahzbrut.reciperestapi.repositories.UOMRepository;
 import ru.aahzbrut.reciperestapi.services.UOMService;
 
@@ -26,6 +27,7 @@ public class UOMServiceImpl implements UOMService {
 
     private final UOMRepository uomRepository;
     private final UOMMapper uomMapper;
+    private final UOMResponseMapper uomResponseMapper;
 
     @Override
     public List<UOMResponse> getAllUoms() {
@@ -33,7 +35,7 @@ public class UOMServiceImpl implements UOMService {
 
         List<UOMResponse> result = uomRepository.findAll()
                 .stream()
-                .map(uomMapper::uomToUomResponse)
+                .map(uomResponseMapper::from)
                 .collect(Collectors.toList());
 
         log.trace("UOMs:\n" + result);
@@ -47,7 +49,7 @@ public class UOMServiceImpl implements UOMService {
     public UOMResponse getUomById(Long uomId) {
         log.debug(START + getCurrentMethodName());
 
-        UOMResponse result = uomMapper.uomToUomResponse(uomRepository.getOne(uomId));
+        UOMResponse result = uomResponseMapper.from(uomRepository.getOne(uomId));
         log.trace(UOM_TRACE + result);
 
         log.debug(FINISH + getCurrentMethodName());
@@ -58,7 +60,7 @@ public class UOMServiceImpl implements UOMService {
     public UOMResponse getUomByName(String uomName) {
         log.debug(START + getCurrentMethodName());
 
-        UOMResponse result = uomMapper.uomToUomResponse(uomRepository.getFirstByName(uomName));
+        UOMResponse result = uomResponseMapper.from(uomRepository.getFirstByName(uomName));
         log.trace(UOM_TRACE + result);
 
         log.debug(FINISH + getCurrentMethodName());
@@ -70,11 +72,11 @@ public class UOMServiceImpl implements UOMService {
     public UOMResponse createUom(UOMRequest uomRequest) {
         log.debug(START + getCurrentMethodName());
 
-        UOM newUom = uomMapper.uomRequestToUOM(uomRequest);
+        UOM newUom = uomMapper.from(uomRequest);
 
         newUom = uomRepository.saveAndFlush(newUom);
 
-        UOMResponse result = uomMapper.uomToUomResponse(newUom);
+        UOMResponse result = uomResponseMapper.from(newUom);
         log.trace(UOM_TRACE + result);
 
         log.debug(FINISH + getCurrentMethodName());
@@ -86,11 +88,11 @@ public class UOMServiceImpl implements UOMService {
     public UOMResponse updateUom(UOMResponse uomResponse) {
         log.debug(START + getCurrentMethodName());
 
-        UOM newUom = uomMapper.uomResponseToUOM(uomResponse);
+        UOM newUom = uomMapper.from(uomResponse);
 
         newUom = uomRepository.save(newUom);
 
-        UOMResponse result = uomMapper.uomToUomResponse(newUom);
+        UOMResponse result = uomResponseMapper.from(newUom);
         log.trace(UOM_TRACE + result);
 
         log.debug(FINISH + getCurrentMethodName());

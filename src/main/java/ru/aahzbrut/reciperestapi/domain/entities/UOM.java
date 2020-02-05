@@ -9,15 +9,13 @@ import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
-@Entity
+@Entity(name = "UOM")
 @Getter
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @AttributeOverride(name = "id", column = @Column(name = "UOM_ID"))
-@Table(name = "UOM")
 public class UOM extends BaseEntity {
 
     private static final long serialVersionUID = 1L;

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.UOMList;
+import ru.aahzbrut.reciperestapi.dto.responses.UOMReponseList;
 import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
 import ru.aahzbrut.reciperestapi.services.UOMService;
 
@@ -40,14 +40,14 @@ public class UOMController {
     @ResponseStatus(OK)
     @GetMapping(value = API_V1_ALL_UOMS,
             produces = APPLICATION_JSON_VALUE)
-    public UOMList getAllUoms() {
+    public UOMReponseList getAllUoms() {
         log.info(START + getCurrentMethodName());
 
-        UOMList uomList = new UOMList();
-        uomList.setUoms(uomService.getAllUoms());
+        UOMReponseList uomReponseList = new UOMReponseList();
+        uomReponseList.setUoms(uomService.getAllUoms());
 
         log.info(FINISH + getCurrentMethodName());
-        return uomList;
+        return uomReponseList;
     }
 
     @ApiOperation(value = "Returns UOM by ID")
@@ -91,7 +91,7 @@ public class UOMController {
         return  result;
     }
 
-    @ApiOperation(value = "Create new UOM")
+    @ApiOperation(value = "Delete UOM by id")
     @ResponseStatus(OK)
     @DeleteMapping(value = API_V1_UOM_BY_ID,
             produces = APPLICATION_JSON_VALUE)

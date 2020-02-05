@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import ru.aahzbrut.reciperestapi.domain.entities.UOM;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
+import ru.aahzbrut.reciperestapi.mappers.impl.UOMMapperImpl;
+import ru.aahzbrut.reciperestapi.mappers.impl.UOMResponseMapperImpl;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class UOMMapperTest {
 
-    private static final UOMMapper uomMapper = UOMMapper.INSTANCE;
+    private static final UOMResponseMapper uomResponseMapper = new UOMResponseMapperImpl();
+    private static final UOMMapper uomMapper = new UOMMapperImpl();
     private static final Long UOM_ID = 1L;
     private static final String UOM_NAME = "Barrel";
     private static final String UOM_DESCRIPTION = "Bottomless barrel";
@@ -27,10 +30,10 @@ class UOMMapperTest {
         uom.setName(UOM_NAME);
         uom.setDescription(UOM_DESCRIPTION);
         uom.setCreatedDateTime(CREATED_DATETIME);
-        uom.setUpdatedDateTime(UPDATED_DATETIME);
+        uom.setModifiedDateTime(UPDATED_DATETIME);
 
         //when
-        UOMResponse uomResponse = uomMapper.uomToUomResponse(uom);
+        UOMResponse uomResponse = uomResponseMapper.from(uom);
 
         //then
         assertEquals(UOM_ID, uomResponse.getId());
@@ -48,14 +51,14 @@ class UOMMapperTest {
         uomRequest.setDescription(UOM_DESCRIPTION);
 
         //when
-        UOM uom = uomMapper.uomRequestToUOM(uomRequest);
+        UOM uom = uomMapper.from(uomRequest);
 
         //then
         assertEquals(NULL, uom.getId());
         assertEquals(UOM_NAME, uom.getName());
         assertEquals(UOM_DESCRIPTION, uom.getDescription());
         assertEquals(NULL, uom.getCreatedDateTime());
-        assertEquals(NULL, uom.getUpdatedDateTime());
+        assertEquals(NULL, uom.getModifiedDateTime());
     }
 
     @Test
@@ -66,16 +69,16 @@ class UOMMapperTest {
         uomResponse.setName(UOM_NAME);
         uomResponse.setDescription(UOM_DESCRIPTION);
         uomResponse.setCreatedDateTime(CREATED_DATETIME);
-        uomResponse.setCreatedDateTime(UPDATED_DATETIME);
+        uomResponse.setUpdatedDateTime(UPDATED_DATETIME);
 
         //when
-        UOM uom = uomMapper.uomResponseToUOM(uomResponse);
+        UOM uom = uomMapper.from(uomResponse);
 
         //then
         assertEquals(UOM_ID, uom.getId());
         assertEquals(UOM_NAME, uom.getName());
         assertEquals(UOM_DESCRIPTION, uom.getDescription());
-        assertEquals(NULL, uom.getCreatedDateTime());
-        assertEquals(NULL, uom.getUpdatedDateTime());
+        assertEquals(CREATED_DATETIME, uom.getCreatedDateTime());
+        assertEquals(UPDATED_DATETIME, uom.getModifiedDateTime());
     }
 }
