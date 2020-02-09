@@ -3,7 +3,7 @@ package ru.aahzbrut.reciperestapi.mappers.impl;
 import org.springframework.stereotype.Service;
 import ru.aahzbrut.reciperestapi.domain.entities.UOM;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.uom.UOMResponse;
 import ru.aahzbrut.reciperestapi.mappers.UOMMapper;
 
 @Service
@@ -30,5 +30,13 @@ public class UOMMapperImpl implements UOMMapper {
         result.setModifiedDateTime(uomResponse.getUpdatedDateTime());
 
         return result;
+    }
+
+    @Override
+    public UOM merge(UOM uom, UOMRequest uomRequest) {
+        uom.setName(uomRequest.getName());
+        uom.setDescription(uomRequest.getDescription());
+
+        return uom;
     }
 }

@@ -10,8 +10,8 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.UOMReponseList;
-import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.uom.UOMReponseList;
+import ru.aahzbrut.reciperestapi.dto.responses.uom.UOMResponse;
 import ru.aahzbrut.reciperestapi.services.UOMService;
 
 import java.time.LocalDateTime;
@@ -35,7 +35,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static ru.aahzbrut.reciperestapi.controllers.v1.UOMController.API_V1_ALL_UOMS;
 import static ru.aahzbrut.reciperestapi.controllers.v1.UOMController.API_V1_UOM_BY_ID;
-import static ru.aahzbrut.reciperestapi.controllers.v1.UOMController.API_V1_UOM_SAVE;
 import static ru.aahzbrut.reciperestapi.tools.DateTimeUtils.FORMATTER;
 
 class UOMControllerTest {
@@ -161,10 +160,10 @@ class UOMControllerTest {
         String parameter = mapper.writeValueAsString(uomResponse);
 
         //when
-        when(uomService.updateUom(any())).thenReturn(uomResponse);
+        when(uomService.updateUom(anyLong(), any())).thenReturn(uomResponse);
 
         //then
-        mockMvc.perform(put(API_V1_UOM_SAVE)
+        mockMvc.perform(put(API_V1_UOM_BY_ID, ID)
                 .accept(APPLICATION_JSON)
                 .content(parameter)
                 .contentType(APPLICATION_JSON))
@@ -176,7 +175,7 @@ class UOMControllerTest {
                 .andExpect(jsonPath("$.createdDateTime", is(CREATED_DATE_TIME.format(FORMATTER))))
                 .andExpect(jsonPath("$.updatedDateTime", is(UPDATED_DATE_TIME.format(FORMATTER))));
 
-        verify(uomService, times(1)).updateUom(any());
+        verify(uomService).updateUom(anyLong(), any());
         verifyNoMoreInteractions(uomService);
     }
 

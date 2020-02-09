@@ -1,7 +1,7 @@
 package ru.aahzbrut.reciperestapi.mappers;
 
 import ru.aahzbrut.reciperestapi.domain.entities.Ingredient;
-import ru.aahzbrut.reciperestapi.dto.responses.IngredientResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.ingredient.IngredientResponse;
 
 public interface IngredientResponseMapper {
 

@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.UOMReponseList;
-import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.uom.UOMReponseList;
+import ru.aahzbrut.reciperestapi.dto.responses.uom.UOMResponse;
 import ru.aahzbrut.reciperestapi.services.UOMService;
 
 import static org.springframework.http.HttpStatus.OK;
@@ -32,7 +32,6 @@ public class UOMController {
 
     public static final String API_V1_ALL_UOMS = "/api/v1/uoms";
     public static final String API_V1_UOM_BY_ID = "/api/v1/uoms/{id}";
-    public static final String API_V1_UOM_SAVE = "/api/v1/uoms/save";
 
     private final UOMService uomService;
 
@@ -65,16 +64,17 @@ public class UOMController {
 
     @ApiOperation(value = "Update UOM by ID and new attributes")
     @ResponseStatus(OK)
-    @PutMapping(value = API_V1_UOM_SAVE,
+    @PutMapping(value = API_V1_UOM_BY_ID,
             consumes = APPLICATION_JSON_VALUE,
             produces = APPLICATION_JSON_VALUE)
-    public UOMResponse updateUom(@RequestBody UOMResponse uomResponse) {
+    public UOMResponse updateUom(@PathVariable(name = "id") Long uomId,
+                                 @RequestBody UOMRequest uomRequest) {
         log.info(START + getCurrentMethodName());
 
-        UOMResponse result = uomService.updateUom(uomResponse);
+        UOMResponse result = uomService.updateUom(uomId, uomRequest);
 
         log.info(FINISH + getCurrentMethodName());
-        return  result;
+        return result;
     }
 
     @ApiOperation(value = "Create new UOM")
@@ -88,7 +88,7 @@ public class UOMController {
         UOMResponse result = uomService.createUom(uomRequest);
 
         log.info(FINISH + getCurrentMethodName());
-        return  result;
+        return result;
     }
 
     @ApiOperation(value = "Delete UOM by id")

@@ -10,7 +10,7 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.aahzbrut.reciperestapi.domain.entities.Category;
 import ru.aahzbrut.reciperestapi.dto.requests.CategoryRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.CategoryResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.category.CategoryResponse;
 import ru.aahzbrut.reciperestapi.mappers.CategoryMapper;
 import ru.aahzbrut.reciperestapi.mappers.CategoryResponseMapper;
 import ru.aahzbrut.reciperestapi.mappers.impl.CategoryMapperImpl;

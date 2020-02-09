@@ -3,7 +3,7 @@ package ru.aahzbrut.reciperestapi.mappers;
 import org.junit.jupiter.api.Test;
 import ru.aahzbrut.reciperestapi.domain.entities.UOM;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.uom.UOMResponse;
 import ru.aahzbrut.reciperestapi.mappers.impl.UOMMapperImpl;
 import ru.aahzbrut.reciperestapi.mappers.impl.UOMResponseMapperImpl;
 

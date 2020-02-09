@@ -5,6 +5,7 @@ public class DebugStrings {
     private DebugStrings() {}
 
     public static final String UOM_TRACE = "UOM:\n";
+    public static final String STEP_TRACE = "STEP:\n";
     public static final String FINISH = "OUT: ";
     public static final String START = "IN: ";
 }

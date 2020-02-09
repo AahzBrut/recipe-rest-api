@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import ru.aahzbrut.reciperestapi.domain.entities.Note;
 import ru.aahzbrut.reciperestapi.domain.entities.Recipe;
 import ru.aahzbrut.reciperestapi.dto.requests.NoteRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.NoteResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.note.NoteResponse;
 import ru.aahzbrut.reciperestapi.mappers.NoteResponseMapper;
 
 import java.time.LocalDateTime;
@@ -54,7 +54,7 @@ class NoteResponseMapperImplTest {
         result.setRecipeId(RECIPE_ID);
         result.setNoteText(NOTE_TEXT);
         result.setCreatedDateTime(CREATED_DATE_TIME);
-        result.setModifiedDateTime(MODIFIED_DATE_TIME);
+        result.setUpdatedDateTime(MODIFIED_DATE_TIME);
 
         return result;
     }
@@ -84,6 +84,6 @@ class NoteResponseMapperImplTest {
         assertThat(testNoteResponse.getRecipeId()).isEqualTo(RECIPE_ID);
         assertThat(testNoteResponse.getNoteText()).isEqualTo(NOTE_TEXT);
         assertThat(testNoteResponse.getCreatedDateTime()).isEqualTo(CREATED_DATE_TIME);
-        assertThat(testNoteResponse.getModifiedDateTime()).isEqualTo(MODIFIED_DATE_TIME);
+        assertThat(testNoteResponse.getUpdatedDateTime()).isEqualTo(MODIFIED_DATE_TIME);
     }
 }

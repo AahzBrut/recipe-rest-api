@@ -1,7 +1,7 @@
 package ru.aahzbrut.reciperestapi.services;
 
 import ru.aahzbrut.reciperestapi.dto.requests.CategoryRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.CategoryResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.category.CategoryResponse;
 
 import java.util.List;
 

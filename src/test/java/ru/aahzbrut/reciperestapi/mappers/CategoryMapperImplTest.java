@@ -2,7 +2,7 @@ package ru.aahzbrut.reciperestapi.mappers;
 
 import org.junit.jupiter.api.Test;
 import ru.aahzbrut.reciperestapi.domain.entities.Category;
-import ru.aahzbrut.reciperestapi.dto.responses.CategoryResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.category.CategoryResponse;
 import ru.aahzbrut.reciperestapi.mappers.impl.CategoryResponseMapperImpl;
 
 import java.time.LocalDateTime;

@@ -2,7 +2,7 @@ package ru.aahzbrut.reciperestapi.mappers.impl;
 
 import org.springframework.stereotype.Service;
 import ru.aahzbrut.reciperestapi.domain.entities.UOM;
-import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.uom.UOMResponse;
 import ru.aahzbrut.reciperestapi.mappers.UOMResponseMapper;
 
 @Service

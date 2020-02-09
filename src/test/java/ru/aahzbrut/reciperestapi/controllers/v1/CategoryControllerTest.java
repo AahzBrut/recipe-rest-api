@@ -10,7 +10,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import ru.aahzbrut.reciperestapi.dto.requests.CategoryRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.CategoryResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.category.CategoryResponse;
 import ru.aahzbrut.reciperestapi.services.CategoryService;
 
 import java.time.LocalDateTime;

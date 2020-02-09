@@ -1,4 +1,4 @@
-package ru.aahzbrut.reciperestapi.dto.responses;
+package ru.aahzbrut.reciperestapi.dto.responses.ingredient;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.aahzbrut.reciperestapi.domain.entities.Ingredient;
 import ru.aahzbrut.reciperestapi.dto.requests.IngredientRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.IngredientResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.ingredient.IngredientResponse;
 import ru.aahzbrut.reciperestapi.mappers.IngredientMapper;
 import ru.aahzbrut.reciperestapi.mappers.IngredientResponseMapper;
 import ru.aahzbrut.reciperestapi.repositories.IngredientRepository;
