@@ -1,4 +1,4 @@
-package ru.aahzbrut.reciperestapi.dto.responses;
+package ru.aahzbrut.reciperestapi.dto.responses.category;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
@@ -14,7 +14,8 @@ import static ru.aahzbrut.reciperestapi.utils.Constants.ISO_DATE_TIME_PATTERN;
 @Getter
 @NoArgsConstructor
 @ToString
-public class IngredientResponse {
+public class CategoryResponse {
+
     private Long id;
 
     private String name;

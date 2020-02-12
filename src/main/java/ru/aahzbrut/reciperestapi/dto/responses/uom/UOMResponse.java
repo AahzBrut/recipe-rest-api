@@ -1,4 +1,4 @@
-package ru.aahzbrut.reciperestapi.dto.responses;
+package ru.aahzbrut.reciperestapi.dto.responses.uom;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import static ru.aahzbrut.reciperestapi.utils.Constants.ISO_DATE_TIME_PATTERN;
 @Getter
 @NoArgsConstructor
 @ToString
-public class CategoryResponse {
+public class UOMResponse {
 
     private Long id;
 

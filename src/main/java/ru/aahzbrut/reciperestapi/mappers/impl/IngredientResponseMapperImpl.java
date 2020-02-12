@@ -2,7 +2,7 @@ package ru.aahzbrut.reciperestapi.mappers.impl;
 
 import org.springframework.stereotype.Service;
 import ru.aahzbrut.reciperestapi.domain.entities.Ingredient;
-import ru.aahzbrut.reciperestapi.dto.responses.IngredientResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.ingredient.IngredientResponse;
 import ru.aahzbrut.reciperestapi.mappers.IngredientResponseMapper;
 
 @Service

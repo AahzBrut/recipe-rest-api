@@ -8,7 +8,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import ru.aahzbrut.reciperestapi.domain.entities.UOM;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.uom.UOMResponse;
 import ru.aahzbrut.reciperestapi.mappers.UOMMapper;
 import ru.aahzbrut.reciperestapi.mappers.UOMResponseMapper;
 import ru.aahzbrut.reciperestapi.mappers.impl.UOMMapperImpl;
@@ -176,8 +176,9 @@ class UOMServiceImplTest {
         // given
 
         // when
-        when(uomRepository.save(any())).thenReturn(uom);
-        UOMResponse response = uomService.updateUom(uomResponse);
+        when(uomRepository.getOne(anyLong())).thenReturn(uom);
+        when(uomRepository.saveAndFlush(any())).thenReturn(uom);
+        UOMResponse response = uomService.updateUom(ID, uomRequest);
 
         // then
         assertEquals(ID, response.getId());
@@ -186,7 +187,8 @@ class UOMServiceImplTest {
         assertEquals(CREATED_DATE_TIME, response.getCreatedDateTime());
         assertEquals(UPDATED_DATE_TIME, response.getUpdatedDateTime());
 
-        verify(uomRepository, times(1)).save(any());
+        verify(uomRepository).getOne(anyLong());
+        verify(uomRepository).saveAndFlush(any());
         verifyNoMoreInteractions(uomRepository);
     }
 

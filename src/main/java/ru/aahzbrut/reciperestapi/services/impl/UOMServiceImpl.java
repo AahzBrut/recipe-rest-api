@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.aahzbrut.reciperestapi.domain.entities.UOM;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.UOMResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.uom.UOMResponse;
 import ru.aahzbrut.reciperestapi.mappers.UOMMapper;
 import ru.aahzbrut.reciperestapi.mappers.UOMResponseMapper;
 import ru.aahzbrut.reciperestapi.repositories.UOMRepository;
@@ -85,12 +85,14 @@ public class UOMServiceImpl implements UOMService {
 
     @Override
     @Transactional
-    public UOMResponse updateUom(UOMResponse uomResponse) {
+    public UOMResponse updateUom(Long uomId, UOMRequest uomRequest) {
         log.debug(START + getCurrentMethodName());
 
-        UOM newUom = uomMapper.from(uomResponse);
+        UOM oldUom = uomRepository.getOne(uomId);
 
-        newUom = uomRepository.save(newUom);
+        UOM newUom = uomMapper.merge(oldUom, uomRequest);
+
+        newUom = uomRepository.saveAndFlush(newUom);
 
         UOMResponse result = uomResponseMapper.from(newUom);
         log.trace(UOM_TRACE + result);

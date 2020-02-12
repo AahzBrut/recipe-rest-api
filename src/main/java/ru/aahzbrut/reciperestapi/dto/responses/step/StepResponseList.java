@@ -1,4 +1,4 @@
-package ru.aahzbrut.reciperestapi.dto.responses;
+package ru.aahzbrut.reciperestapi.dto.responses.step;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class NoteResponseList {
+public class StepResponseList {
 
-    private List<NoteResponse> notes = new LinkedList<>();
+    private List<StepResponse> steps = new LinkedList<>();
 }

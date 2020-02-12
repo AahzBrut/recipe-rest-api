@@ -1,7 +1,7 @@
 package ru.aahzbrut.reciperestapi.services;
 
 import ru.aahzbrut.reciperestapi.dto.requests.NoteRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.NoteResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.note.NoteResponse;
 
 import java.util.List;
 

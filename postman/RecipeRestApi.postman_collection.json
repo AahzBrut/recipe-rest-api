@@ -69,10 +69,10 @@
 				{
 					"name": "Get Category by ID",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/categories/1",
+							"raw": "http://localhost:8080/api/v1/categories/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -82,7 +82,7 @@
 								"api",
 								"v1",
 								"categories",
-								"1"
+								"11"
 							]
 						}
 					},
@@ -169,6 +169,33 @@
 								"api",
 								"v1",
 								"uoms"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Ingredients",
+			"item": [
+				{
+					"name": "Get all ingredients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/ingredients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ingredients"
 							]
 						}
 					},

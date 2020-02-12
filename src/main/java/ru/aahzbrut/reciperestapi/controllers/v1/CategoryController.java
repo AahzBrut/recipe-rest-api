@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import ru.aahzbrut.reciperestapi.dto.requests.CategoryRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.CategoryResponse;
-import ru.aahzbrut.reciperestapi.dto.responses.CategoryResponseList;
+import ru.aahzbrut.reciperestapi.dto.responses.category.CategoryResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.category.CategoryResponseList;
 import ru.aahzbrut.reciperestapi.services.CategoryService;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;

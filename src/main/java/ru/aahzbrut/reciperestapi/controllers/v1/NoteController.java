@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import ru.aahzbrut.reciperestapi.dto.requests.NoteRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.NoteResponse;
-import ru.aahzbrut.reciperestapi.dto.responses.NoteResponseList;
+import ru.aahzbrut.reciperestapi.dto.responses.note.NoteResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.note.NoteResponseList;
 import ru.aahzbrut.reciperestapi.services.NoteService;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;

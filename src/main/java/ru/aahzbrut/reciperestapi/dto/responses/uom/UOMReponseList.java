@@ -1,19 +1,20 @@
-package ru.aahzbrut.reciperestapi.dto.responses;
+package ru.aahzbrut.reciperestapi.dto.responses.uom;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.LinkedList;
 import java.util.List;
 
-
 @Setter
 @Getter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryResponseList {
+public class UOMReponseList {
 
-    List<CategoryResponse> categories = new LinkedList<>();
+    private List<UOMResponse> uoms = new LinkedList<>();
 }

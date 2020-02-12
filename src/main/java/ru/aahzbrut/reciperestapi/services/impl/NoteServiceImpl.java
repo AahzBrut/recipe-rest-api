@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.aahzbrut.reciperestapi.domain.entities.Note;
 import ru.aahzbrut.reciperestapi.dto.requests.NoteRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.NoteResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.note.NoteResponse;
 import ru.aahzbrut.reciperestapi.mappers.NoteMapper;
 import ru.aahzbrut.reciperestapi.mappers.NoteResponseMapper;
 import ru.aahzbrut.reciperestapi.repositories.NoteRepository;
