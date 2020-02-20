@@ -6,4 +6,6 @@ import ru.aahzbrut.reciperestapi.dto.requests.CategoryRequest;
 public interface CategoryMapper {
 
     Category from(CategoryRequest categoryRequest);
+
+    Category merge(Category category, CategoryRequest categoryRequest);
 }

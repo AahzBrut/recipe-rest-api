@@ -36,7 +36,7 @@ public class StepController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = API_V1_STEP_BY_ID,
             produces = APPLICATION_JSON_VALUE)
-    public StepResponse getStepById(@PathVariable long id) {
+    public StepResponse getStepById(@PathVariable(name = "id") long id) {
         log.info(START + getCurrentMethodName());
 
         StepResponse response = stepService.getById(id);
@@ -48,7 +48,7 @@ public class StepController {
     @ApiOperation(value = "Delete step by id")
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping(value = API_V1_STEP_BY_ID)
-    public void deleteStepById(@PathVariable long id) {
+    public void deleteStepById(@PathVariable(name = "id") long id) {
         log.info(START + getCurrentMethodName());
 
         stepService.deleteById(id);
@@ -89,7 +89,7 @@ public class StepController {
     @PutMapping(value = API_V1_STEP_BY_ID,
             consumes = APPLICATION_JSON_VALUE,
             produces = APPLICATION_JSON_VALUE)
-    public StepResponse updateStep(@PathVariable long id, @RequestBody StepRequest stepRequest) {
+    public StepResponse updateStep(@PathVariable(name = "id") long id, @RequestBody StepRequest stepRequest) {
         log.info(START + getCurrentMethodName());
 
         StepResponse response = stepService.update(id, stepRequest);

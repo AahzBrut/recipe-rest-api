@@ -139,7 +139,7 @@ class CategoryControllerTest {
         String parameter = mapper.writeValueAsString(categoryRequest);
 
         //when
-        when(categoryService.save(any())).thenReturn(categoryResponse);
+        when(categoryService.create(any())).thenReturn(categoryResponse);
 
         //then
         mockMvc.perform(post(API_V1_ALL_CATEGORIES)
@@ -154,7 +154,7 @@ class CategoryControllerTest {
                 .andExpect(jsonPath("$.createdDateTime", is(CREATED_TIME.format(FORMATTER))))
                 .andExpect(jsonPath("$.updatedDateTime", is(UPDATED_TIME.format(FORMATTER))));
 
-        verify(categoryService).save(any());
+        verify(categoryService).create(any());
         verifyNoMoreInteractions(categoryService);
     }
 }

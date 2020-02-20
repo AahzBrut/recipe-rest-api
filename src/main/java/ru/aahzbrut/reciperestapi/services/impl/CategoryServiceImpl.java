@@ -28,6 +28,7 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryMapper categoryMapper;
     private final CategoryResponseMapper categoryResponseMapper;
 
+    @Transactional
     @Override
     public CategoryResponse getById(Long categoryId) {
         log.debug(START + getCurrentMethodName());
@@ -43,8 +44,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    @Transactional
-    public CategoryResponse save(CategoryRequest categoryRequest) {
+    public CategoryResponse create(CategoryRequest categoryRequest) {
         log.debug(START + getCurrentMethodName());
 
         Category categoryEntity = categoryMapper.from(categoryRequest);
@@ -92,6 +92,24 @@ public class CategoryServiceImpl implements CategoryService {
 
         log.debug(FINISH + getCurrentMethodName());
         return result;
+    }
+
+    @Transactional
+    @Override
+    public CategoryResponse update(Long categoryId, CategoryRequest categoryRequest) {
+        log.debug(START + getCurrentMethodName());
+
+        Category category = categoryRepository.getOne(categoryId);
+        log.trace("Category before update: " + category);
+
+        category = categoryMapper.merge(category, categoryRequest);
+        log.trace("Category after update: " + category);
+
+        category = categoryRepository.saveAndFlush(category);
+        log.trace("Category after save: " + category);
+
+        log.debug(FINISH + getCurrentMethodName());
+        return categoryResponseMapper.from(category);
     }
 
     @Override

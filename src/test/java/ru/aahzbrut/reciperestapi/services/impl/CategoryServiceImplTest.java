@@ -102,7 +102,7 @@ class CategoryServiceImplTest {
         when(categoryRepository.saveAndFlush(any())).thenReturn(categoryEntity);
 
         //when
-        CategoryResponse response = categoryService.save(categoryRequest);
+        CategoryResponse response = categoryService.create(categoryRequest);
 
         //then
         assertEquals(categoryId, response.getId());

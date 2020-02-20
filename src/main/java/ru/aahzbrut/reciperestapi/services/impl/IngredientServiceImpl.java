@@ -11,6 +11,7 @@ import ru.aahzbrut.reciperestapi.mappers.IngredientResponseMapper;
 import ru.aahzbrut.reciperestapi.repositories.IngredientRepository;
 import ru.aahzbrut.reciperestapi.services.IngredientService;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,6 +29,7 @@ public class IngredientServiceImpl implements IngredientService {
     private final IngredientMapper ingredientMapper;
 
     @Override
+    @Transactional
     public IngredientResponse getById(Long ingredientId) {
         log.debug(START + getCurrentMethodName());
 
@@ -63,8 +65,26 @@ public class IngredientServiceImpl implements IngredientService {
         return ingredients;
     }
 
+    @Transactional
     @Override
-    public IngredientResponse update(IngredientRequest ingredientRequest) {
+    public IngredientResponse update(Long ingredientId, IngredientRequest ingredientRequest) {
+        log.debug(START + getCurrentMethodName());
+
+        Ingredient ingredient = ingredientRepository.getOne(ingredientId);
+        log.trace("Ingredient before update: " + ingredient.toString());
+
+        ingredient = ingredientMapper.merge(ingredient, ingredientRequest);
+        log.trace("Ingredient after update: " + ingredient.toString());
+
+        ingredient = ingredientRepository.saveAndFlush(ingredient);
+        log.trace("Ingredient after save: " + ingredient.toString());
+
+        log.debug(FINISH + getCurrentMethodName());
+        return ingredientResponseMapper.from(ingredient);
+    }
+
+    @Override
+    public IngredientResponse create(IngredientRequest ingredientRequest) {
         log.debug(START + getCurrentMethodName());
 
         Ingredient ingredient = ingredientMapper.from(ingredientRequest);
@@ -73,10 +93,7 @@ public class IngredientServiceImpl implements IngredientService {
         ingredient = ingredientRepository.saveAndFlush(ingredient);
         log.trace("Ingredient after save: " + ingredient.toString());
 
-        IngredientResponse ingredientResponse = ingredientResponseMapper.from(ingredient);
-        log.trace("IngredientResponse: " + ingredientResponse);
-
         log.debug(FINISH + getCurrentMethodName());
-        return ingredientResponse;
+        return ingredientResponseMapper.from(ingredient);
     }
 }

@@ -10,7 +10,11 @@ public class IngredientMapperImpl implements IngredientMapper {
 
     @Override
     public Ingredient from(IngredientRequest ingredientRequest) {
-        Ingredient ingredient = new Ingredient();
+        return merge(new Ingredient(), ingredientRequest);
+    }
+
+    @Override
+    public Ingredient merge(Ingredient ingredient, IngredientRequest ingredientRequest) {
         ingredient.setName(ingredientRequest.getName());
         ingredient.setDescription(ingredientRequest.getDescription());
 
