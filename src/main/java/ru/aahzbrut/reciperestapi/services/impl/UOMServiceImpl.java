@@ -45,6 +45,7 @@ public class UOMServiceImpl implements UOMService {
         return result;
     }
 
+    @Transactional
     @Override
     public UOMResponse getUomById(Long uomId) {
         log.debug(START + getCurrentMethodName());

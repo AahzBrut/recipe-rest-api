@@ -9,6 +9,49 @@
 			"name": "Categories",
 			"item": [
 				{
+					"name": "Get all Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/categories/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Add Category",
 					"request": {
 						"method": "POST",
@@ -46,33 +89,28 @@
 					"response": []
 				},
 				{
-					"name": "Get all Categories",
+					"name": "Update Category",
 					"request": {
-						"method": "GET",
-						"header": [],
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"description\": \"Vegetables\",\r\n  \"name\": \"Apples\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/categories",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Category by ID",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/v1/categories/11",
+							"raw": "http://localhost:8080/api/v1/categories/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -82,7 +120,7 @@
 								"api",
 								"v1",
 								"categories",
-								"11"
+								"1"
 							]
 						}
 					},
@@ -94,7 +132,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/categories/3",
+							"raw": "http://localhost:8080/api/v1/categories/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -104,7 +142,7 @@
 								"api",
 								"v1",
 								"categories",
-								"3"
+								"2"
 							]
 						}
 					},
@@ -116,6 +154,49 @@
 		{
 			"name": "UOMs",
 			"item": [
+				{
+					"name": "Get all UOMs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/uoms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"uoms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an UOM by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/uoms/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"uoms",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Create new UOM",
 					"request": {
@@ -154,12 +235,28 @@
 					"response": []
 				},
 				{
-					"name": "Get all UOMs",
+					"name": "Update an UOM by ID",
 					"request": {
-						"method": "GET",
-						"header": [],
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"description\": \"kilogramm\",\r\n  \"name\": \"kilogramm\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/uoms",
+							"raw": "http://localhost:8080/api/v1/uoms/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -168,7 +265,30 @@
 							"path": [
 								"api",
 								"v1",
-								"uoms"
+								"uoms",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an UOM by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/uoms/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"uoms",
+								"1"
 							]
 						}
 					},
@@ -196,6 +316,125 @@
 								"api",
 								"v1",
 								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ingredient by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/ingredients/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ingredients",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add an Ingridient",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"description\": \"Ripe avocado\",\r\n  \"name\": \"Avocado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/ingredients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Ingridient",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"description\": \"Green apple\",\r\n  \"name\": \"Apple\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/ingredients/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ingredients",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Ingredient by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/ingredients/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ingredients",
+								"3"
 							]
 						}
 					},

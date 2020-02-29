@@ -7,9 +7,10 @@ import java.util.List;
 
 public interface CategoryService {
     CategoryResponse getById(Long categoryId);
-    CategoryResponse save(CategoryRequest categoryRequest);
+    CategoryResponse create(CategoryRequest categoryRequest);
     List<CategoryResponse> getAllCategories();
     void delete(CategoryRequest categoryRequest);
     void deleteById(Long categoryId);
     boolean isCategoryExists(CategoryRequest categoryRequest);
+    CategoryResponse update(Long categoryId, CategoryRequest categoryRequest);
 }

@@ -13,92 +13,91 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import ru.aahzbrut.reciperestapi.dto.requests.IngredientRequest;
-import ru.aahzbrut.reciperestapi.dto.responses.ingredient.IngredientResponse;
-import ru.aahzbrut.reciperestapi.dto.responses.ingredient.IngredientResponseList;
-import ru.aahzbrut.reciperestapi.services.IngredientService;
+import ru.aahzbrut.reciperestapi.dto.requests.RecipeRequest;
+import ru.aahzbrut.reciperestapi.dto.responses.recipe.RecipeResponse;
+import ru.aahzbrut.reciperestapi.dto.responses.recipe.RecipeResponseList;
+import ru.aahzbrut.reciperestapi.services.RecipeService;
 
-import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static ru.aahzbrut.reciperestapi.utils.DebugStrings.FINISH;
 import static ru.aahzbrut.reciperestapi.utils.DebugStrings.START;
 import static ru.aahzbrut.reciperestapi.utils.ReflectionUtils.getCurrentMethodName;
 
 @Slf4j
-@Api(value = "CRUD operations with Ingredient.")
+@Api(value = "CRUD operations with recipes.")
 @RequiredArgsConstructor
 @RestController
-public class IngredientController {
+public class RecipeController {
 
-    public static final String API_V1_INGREDIENT_BY_ID = "/api/v1/ingredients/{id}";
-    public static final String API_V1_ALL_INGREDIENTS = "/api/v1/ingredients";
-    private final IngredientService ingredientService;
+    private static final String API_V_1_RECIPES_ID = "/api/v1/recipes/{id}";
+    private static final String API_V_1_ALL_RECIPES = "/api/v1/recipes";
+
+    private final RecipeService recipeService;
 
 
-    @ApiOperation(value = "Get Ingredient by id")
+    @ApiOperation(value = "Get recipe by id")
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = API_V1_INGREDIENT_BY_ID,
+    @GetMapping(value = API_V_1_RECIPES_ID,
             produces = APPLICATION_JSON_VALUE)
-    public IngredientResponse getIngredientById(@PathVariable long id) {
+    public RecipeResponse getRecipeById(@PathVariable(name = "id") long id) {
         log.info(START + getCurrentMethodName());
 
-        IngredientResponse response = ingredientService.getById(id);
+        RecipeResponse response = recipeService.getById(id);
 
         log.info(FINISH + getCurrentMethodName());
         return response;
     }
 
-    @ApiOperation(value = "Delete Ingredient by id")
+    @ApiOperation(value = "Delete recipe by id")
     @ResponseStatus(HttpStatus.OK)
-    @DeleteMapping(value = API_V1_INGREDIENT_BY_ID)
-    public void deleteIngredientById(@PathVariable long id) {
+    @DeleteMapping(value = API_V_1_RECIPES_ID)
+    public void deleteRecipeById(@PathVariable(name = "id") long id) {
         log.info(START + getCurrentMethodName());
 
-        ingredientService.deleteById(id);
+        recipeService.deleteById(id);
 
         log.info(FINISH + getCurrentMethodName());
     }
 
-    @ApiOperation(value = "Get all Ingredients")
+    @ApiOperation(value = "Get all recipes")
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = API_V1_ALL_INGREDIENTS,
+    @GetMapping(value = API_V_1_ALL_RECIPES,
             produces = APPLICATION_JSON_VALUE)
-    public IngredientResponseList getAllIngredients() {
+    public RecipeResponseList getAllRecipes() {
         log.info(START + getCurrentMethodName());
 
-        IngredientResponseList response = new IngredientResponseList();
-        response.setIngredients(ingredientService.getAllCategories());
+        RecipeResponseList response = new RecipeResponseList();
+        response.setSteps(recipeService.getAllRecipes());
 
         log.info(FINISH + getCurrentMethodName());
         return response;
     }
 
-    @ApiOperation(value = "Create new Ingredient")
+    @ApiOperation(value = "Create new recipe")
     @ResponseStatus(HttpStatus.OK)
-    @PostMapping(value = API_V1_ALL_INGREDIENTS,
+    @PostMapping(value = API_V_1_ALL_RECIPES,
             consumes = APPLICATION_JSON_VALUE,
             produces = APPLICATION_JSON_VALUE)
-    public IngredientResponse createNewIngredient(@RequestBody IngredientRequest ingredientRequest) {
+    public RecipeResponse createNewRecipe(@RequestBody RecipeRequest recipeRequest) {
         log.info(START + getCurrentMethodName());
 
-        IngredientResponse response = ingredientService.create(ingredientRequest);
+        RecipeResponse response = recipeService.addNew(recipeRequest);
 
         log.info(FINISH + getCurrentMethodName());
         return response;
     }
 
-    @ApiOperation(value = "Update Ingredient by ID and new attributes")
-    @ResponseStatus(OK)
-    @PutMapping(value = API_V1_INGREDIENT_BY_ID,
+    @ApiOperation(value = "Update existing recipe")
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping(value = API_V_1_RECIPES_ID,
             consumes = APPLICATION_JSON_VALUE,
             produces = APPLICATION_JSON_VALUE)
-    public IngredientResponse updateIngredient(@PathVariable(name = "id") Long ingredientId,
-                                 @RequestBody IngredientRequest ingredientRequest) {
+    public RecipeResponse updateRecipe(@PathVariable(name = "id") long id, @RequestBody RecipeRequest recipeRequest) {
         log.info(START + getCurrentMethodName());
 
-        IngredientResponse result = ingredientService.update(ingredientId, ingredientRequest);
+        RecipeResponse response = recipeService.update(id, recipeRequest);
 
         log.info(FINISH + getCurrentMethodName());
-        return result;
+        return response;
     }
 }

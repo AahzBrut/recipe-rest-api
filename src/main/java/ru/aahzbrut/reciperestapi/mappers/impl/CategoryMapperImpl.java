@@ -10,11 +10,15 @@ public class CategoryMapperImpl implements CategoryMapper {
 
     @Override
     public Category from(CategoryRequest categoryRequest) {
-
-        Category result = new Category();
-        result.setName(categoryRequest.getName());
-        result.setDescription(categoryRequest.getDescription());
-
-        return result;
+        return merge(new Category(), categoryRequest);
     }
+
+    @Override
+    public Category merge(Category category, CategoryRequest categoryRequest) {
+        category.setName(categoryRequest.getName());
+        category.setDescription(categoryRequest.getDescription());
+
+        return category;
+    }
+
 }

@@ -13,5 +13,7 @@ public interface IngredientService {
 
     List<IngredientResponse> getAllCategories();
 
-    IngredientResponse update(IngredientRequest ingredientRequest);
+    IngredientResponse update(Long ingredientId, IngredientRequest ingredientRequest);
+
+    IngredientResponse create(IngredientRequest ingredientRequest);
 }

@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 
 import javax.persistence.AttributeOverride;
@@ -18,6 +19,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @AttributeOverride(name = "id", column = @Column(name = "INGREDIENT_ID"))
 public class Ingredient extends BaseEntity {
@@ -30,6 +32,7 @@ public class Ingredient extends BaseEntity {
     @Column(name = "DESCRIPTION")
     private String description;
 
+    @ToString.Exclude
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ingredient")
     private List<StepIngredient> stepIngredients = new LinkedList<>();
 }
