@@ -9,6 +9,7 @@ public interface NoteService {
 
     NoteResponse getNoteById(Long noteId);
     List<NoteResponse> getAllNotes();
-    NoteResponse updateNote(NoteRequest noteRequest);
+    NoteResponse createNote(NoteRequest noteRequest);
+    NoteResponse updateNote(long noteId, NoteRequest noteRequest);
     void deleteById(Long noteId);
 }
