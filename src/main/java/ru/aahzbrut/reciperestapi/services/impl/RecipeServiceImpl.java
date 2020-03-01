@@ -6,7 +6,6 @@ import ru.aahzbrut.reciperestapi.domain.entities.Recipe;
 import ru.aahzbrut.reciperestapi.dto.requests.NoteRequest;
 import ru.aahzbrut.reciperestapi.dto.requests.RecipeRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.recipe.RecipeResponse;
-import ru.aahzbrut.reciperestapi.mappers.NoteMapper;
 import ru.aahzbrut.reciperestapi.mappers.RecipeMapper;
 import ru.aahzbrut.reciperestapi.mappers.RecipeResponseMapper;
 import ru.aahzbrut.reciperestapi.repositories.RecipeRepository;
@@ -25,7 +24,6 @@ public class RecipeServiceImpl implements RecipeService {
 
     private final RecipeResponseMapper recipeResponseMapper;
     private final RecipeMapper recipeMapper;
-    private final NoteMapper noteMapper;
 
     @Override
     public RecipeResponse getById(Long recipeId) {
