@@ -56,7 +56,19 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public NoteResponse updateNote(NoteRequest noteRequest) {
+    public NoteResponse updateNote(long noteId, NoteRequest noteRequest) {
+
+        Note note = noteRepository.getOne(noteId);
+
+        note = noteMapper.merge(note, noteRequest);
+
+        note = noteRepository.saveAndFlush(note);
+
+        return noteResponseMapper.from(note);
+    }
+
+    @Override
+    public NoteResponse createNote(NoteRequest noteRequest) {
         log.debug(START + getCurrentMethodName());
 
         Note noteEntity = noteMapper.from(noteRequest);
@@ -78,6 +90,8 @@ public class NoteServiceImpl implements NoteService {
 
         noteRepository.deleteById(noteId);
         log.trace("Note with ID: " + noteId + " was deleted from repository");
+
+        noteRepository.flush();
 
         log.debug(FINISH + getCurrentMethodName());
     }

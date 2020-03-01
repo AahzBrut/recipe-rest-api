@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import ru.aahzbrut.reciperestapi.dto.requests.NoteRequest;
 import ru.aahzbrut.reciperestapi.dto.requests.RecipeRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.recipe.RecipeResponse;
 import ru.aahzbrut.reciperestapi.dto.responses.recipe.RecipeResponseList;
@@ -31,6 +32,8 @@ public class RecipeController {
 
     private static final String API_V_1_RECIPES_ID = "/api/v1/recipes/{id}";
     private static final String API_V_1_ALL_RECIPES = "/api/v1/recipes";
+    private static final String API_V_1_RECIPES_ID_NOTES = "/api/v1/recipes/{id}/notes";
+    private static final String API_V_1_RECIPES_ID_NOTES_ID = "/api/v1/recipes/{id}/notes/{note_id}";
 
     private final RecipeService recipeService;
 
@@ -96,6 +99,46 @@ public class RecipeController {
         log.info(START + getCurrentMethodName());
 
         RecipeResponse response = recipeService.update(id, recipeRequest);
+
+        log.info(FINISH + getCurrentMethodName());
+        return response;
+    }
+
+    @ApiOperation(value = "Delete note from recipe")
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping(value = API_V_1_RECIPES_ID_NOTES_ID,
+            produces = APPLICATION_JSON_VALUE)
+    public RecipeResponse deleteRecipeNote(@PathVariable(name = "id") long id, @PathVariable(name = "note_id") long noteId) {
+        log.info(START + getCurrentMethodName());
+
+        RecipeResponse response = recipeService.deleteNote(id, noteId);
+
+        log.info(FINISH + getCurrentMethodName());
+        return response;
+    }
+
+    @ApiOperation(value = "Add note to recipe")
+    @ResponseStatus(HttpStatus.OK)
+    @PostMapping(value = API_V_1_RECIPES_ID_NOTES,
+            consumes = APPLICATION_JSON_VALUE,
+            produces = APPLICATION_JSON_VALUE)
+    public RecipeResponse addRecipeNote(@PathVariable(name = "id") long id, @RequestBody NoteRequest noteRequest) {
+        log.info(START + getCurrentMethodName());
+
+        RecipeResponse response = recipeService.addNote(id, noteRequest);
+
+        log.info(FINISH + getCurrentMethodName());
+        return response;
+    }
+
+    @ApiOperation(value = "Update recipe note")
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping(value = API_V_1_RECIPES_ID_NOTES_ID,
+            produces = APPLICATION_JSON_VALUE)
+    public RecipeResponse updateRecipeNote(@PathVariable(name = "id") long id, @PathVariable(name = "note_id") long noteId, @RequestBody NoteRequest noteRequest) {
+        log.info(START + getCurrentMethodName());
+
+        RecipeResponse response = recipeService.updateNote(id, noteId, noteRequest);
 
         log.info(FINISH + getCurrentMethodName());
         return response;

@@ -12,6 +12,12 @@ public class NoteMapperImpl implements NoteMapper {
     @Override
     public Note from(NoteRequest noteRequest) {
         Note note = new Note();
+
+        return merge(note, noteRequest);
+    }
+
+    @Override
+    public Note merge(Note note, NoteRequest noteRequest) {
         note.setNoteText(noteRequest.getNoteText());
         note.setRecipe(new Recipe(noteRequest.getRecipeId()));
 

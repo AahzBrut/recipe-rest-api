@@ -6,4 +6,6 @@ import ru.aahzbrut.reciperestapi.dto.requests.NoteRequest;
 public interface NoteMapper {
 
     Note from(NoteRequest noteRequest);
+
+    Note merge(Note note, NoteRequest noteRequest);
 }
