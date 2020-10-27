@@ -4,15 +4,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.aahzbrut.reciperestapi.domain.entities.Step;
 import ru.aahzbrut.reciperestapi.dto.responses.step.StepResponse;
-import ru.aahzbrut.reciperestapi.mappers.StepIngredientResponseMapper;
-import ru.aahzbrut.reciperestapi.mappers.StepResponseMapper;
+import ru.aahzbrut.reciperestapi.mappers.Mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class StepResponseMapperImpl implements StepResponseMapper {
+public class StepResponseMapper implements Mapper<StepResponse, Step> {
 
     private final StepIngredientResponseMapper stepIngredientResponseMapper;
 
@@ -29,13 +28,5 @@ public class StepResponseMapperImpl implements StepResponseMapper {
         stepResponse.setUpdatedDateTime(step.getModifiedDateTime());
 
         return null;
-    }
-
-    @Override
-    public List<StepResponse> from(List<Step> steps) {
-        return steps
-                .stream()
-                .map(this::from)
-                .collect(Collectors.toList());
     }
 }

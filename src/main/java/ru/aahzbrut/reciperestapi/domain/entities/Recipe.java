@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 import ru.aahzbrut.reciperestapi.domain.Difficulty;
 
@@ -18,6 +19,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,6 +27,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @AttributeOverride(name = "id", column = @Column(name = "RECIPE_ID"))
 public class Recipe extends BaseEntity {
@@ -69,4 +72,23 @@ public class Recipe extends BaseEntity {
     public Recipe(Long recipeId) {
         this.setId(recipeId);
     }
+
+    @Override
+    public Recipe setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    @Override
+    public Recipe setCreatedDateTime(LocalDateTime createdDateTime) {
+        this.createdDateTime = createdDateTime;
+        return this;
+    }
+
+    @Override
+    public Recipe setModifiedDateTime(LocalDateTime modifiedDateTime) {
+        this.modifiedDateTime = modifiedDateTime;
+        return this;
+    }
+
 }

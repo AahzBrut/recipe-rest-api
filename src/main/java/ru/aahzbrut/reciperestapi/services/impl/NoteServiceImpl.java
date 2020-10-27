@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 import ru.aahzbrut.reciperestapi.domain.entities.Note;
 import ru.aahzbrut.reciperestapi.dto.requests.NoteRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.note.NoteResponse;
-import ru.aahzbrut.reciperestapi.mappers.NoteMapper;
-import ru.aahzbrut.reciperestapi.mappers.NoteResponseMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.NoteMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.NoteMerger;
+import ru.aahzbrut.reciperestapi.mappers.impl.NoteResponseMapper;
 import ru.aahzbrut.reciperestapi.repositories.NoteRepository;
 import ru.aahzbrut.reciperestapi.services.NoteService;
 
@@ -26,6 +27,7 @@ public class NoteServiceImpl implements NoteService {
     private final NoteRepository noteRepository;
     private final NoteResponseMapper noteResponseMapper;
     private final NoteMapper noteMapper;
+    private final NoteMerger noteMerger;
 
     @Override
     public NoteResponse getNoteById(Long noteId) {
@@ -60,7 +62,7 @@ public class NoteServiceImpl implements NoteService {
 
         Note note = noteRepository.getOne(noteId);
 
-        note = noteMapper.merge(note, noteRequest);
+        note = noteMerger.merge(note, noteRequest);
 
         note = noteRepository.saveAndFlush(note);
 

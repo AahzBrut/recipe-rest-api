@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 import ru.aahzbrut.reciperestapi.domain.entities.Ingredient;
 import ru.aahzbrut.reciperestapi.dto.requests.IngredientRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.ingredient.IngredientResponse;
-import ru.aahzbrut.reciperestapi.mappers.IngredientMapper;
-import ru.aahzbrut.reciperestapi.mappers.IngredientResponseMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.IngredientMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.IngredientMerger;
+import ru.aahzbrut.reciperestapi.mappers.impl.IngredientResponseMapper;
 import ru.aahzbrut.reciperestapi.repositories.IngredientRepository;
 import ru.aahzbrut.reciperestapi.services.IngredientService;
 
@@ -27,6 +28,7 @@ public class IngredientServiceImpl implements IngredientService {
     private final IngredientRepository ingredientRepository;
     private final IngredientResponseMapper ingredientResponseMapper;
     private final IngredientMapper ingredientMapper;
+    private final IngredientMerger ingredientMerger;
 
     @Override
     @Transactional
@@ -73,7 +75,7 @@ public class IngredientServiceImpl implements IngredientService {
         Ingredient ingredient = ingredientRepository.getOne(ingredientId);
         log.trace("Ingredient before update: " + ingredient.toString());
 
-        ingredient = ingredientMapper.merge(ingredient, ingredientRequest);
+        ingredient = ingredientMerger.merge(ingredient, ingredientRequest);
         log.trace("Ingredient after update: " + ingredient.toString());
 
         ingredient = ingredientRepository.saveAndFlush(ingredient);

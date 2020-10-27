@@ -5,10 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.aahzbrut.reciperestapi.domain.entities.Recipe;
 import ru.aahzbrut.reciperestapi.domain.entities.RecipeStep;
 import ru.aahzbrut.reciperestapi.dto.responses.recipe.RecipeResponse;
-import ru.aahzbrut.reciperestapi.mappers.CategoryResponseMapper;
-import ru.aahzbrut.reciperestapi.mappers.NoteResponseMapper;
-import ru.aahzbrut.reciperestapi.mappers.RecipeResponseMapper;
-import ru.aahzbrut.reciperestapi.mappers.StepResponseMapper;
+import ru.aahzbrut.reciperestapi.mappers.Mapper;
 
 import java.util.Comparator;
 import java.util.List;
@@ -16,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class RecipeResponseMapperImpl implements RecipeResponseMapper {
+public class RecipeResponseMapper implements Mapper<RecipeResponse, Recipe> {
 
     private final NoteResponseMapper noteResponseMapper;
     private final StepResponseMapper stepResponseMapper;
@@ -44,13 +41,5 @@ public class RecipeResponseMapperImpl implements RecipeResponseMapper {
         result.setUpdatedDateTime(recipe.getModifiedDateTime());
 
         return result;
-    }
-
-    @Override
-    public List<RecipeResponse> from(List<Recipe> recipes) {
-        return recipes
-                .stream()
-                .map(this::from)
-                .collect(Collectors.toList());
     }
 }

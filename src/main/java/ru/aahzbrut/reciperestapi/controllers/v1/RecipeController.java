@@ -133,7 +133,8 @@ public class RecipeController {
 
     @ApiOperation(value = "Update recipe note")
     @ResponseStatus(HttpStatus.OK)
-    @DeleteMapping(value = API_V_1_RECIPES_ID_NOTES_ID,
+    @PutMapping(value = API_V_1_RECIPES_ID_NOTES_ID,
+            consumes = APPLICATION_JSON_VALUE,
             produces = APPLICATION_JSON_VALUE)
     public RecipeResponse updateRecipeNote(@PathVariable(name = "id") long id, @PathVariable(name = "note_id") long noteId, @RequestBody NoteRequest noteRequest) {
         log.info(START + getCurrentMethodName());

@@ -1,16 +1,14 @@
 package ru.aahzbrut.reciperestapi.domain.entities;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import lombok.experimental.Accessors;
 import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,6 +17,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @ToString(callSuper = true, onlyExplicitlyIncluded = true)
+@Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @AttributeOverride(name = "id", column = @Column(name = "CATEGORY_ID"))
 public class Category extends BaseEntity {
@@ -35,4 +34,22 @@ public class Category extends BaseEntity {
 
     @ManyToMany(mappedBy = "categories")
     private List<Recipe> recipes = new LinkedList<>();
+
+    @Override
+    public Category setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    @Override
+    public Category setCreatedDateTime(LocalDateTime createdDateTime) {
+        this.createdDateTime = createdDateTime;
+        return this;
+    }
+
+    @Override
+    public Category setModifiedDateTime(LocalDateTime modifiedDateTime) {
+        this.modifiedDateTime = modifiedDateTime;
+        return this;
+    }
 }

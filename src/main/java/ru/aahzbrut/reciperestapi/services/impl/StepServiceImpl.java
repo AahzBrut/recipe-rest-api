@@ -6,16 +6,15 @@ import org.springframework.stereotype.Service;
 import ru.aahzbrut.reciperestapi.domain.entities.Step;
 import ru.aahzbrut.reciperestapi.dto.requests.StepRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.step.StepResponse;
-import ru.aahzbrut.reciperestapi.mappers.StepMapper;
-import ru.aahzbrut.reciperestapi.mappers.StepResponseMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.StepMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.StepMerger;
+import ru.aahzbrut.reciperestapi.mappers.impl.StepResponseMapper;
 import ru.aahzbrut.reciperestapi.repositories.StepRepository;
 import ru.aahzbrut.reciperestapi.services.StepService;
 
 import java.util.List;
 
-import static ru.aahzbrut.reciperestapi.utils.DebugStrings.FINISH;
-import static ru.aahzbrut.reciperestapi.utils.DebugStrings.START;
-import static ru.aahzbrut.reciperestapi.utils.DebugStrings.STEP_TRACE;
+import static ru.aahzbrut.reciperestapi.utils.DebugStrings.*;
 import static ru.aahzbrut.reciperestapi.utils.ReflectionUtils.getCurrentMethodName;
 
 @Slf4j
@@ -25,6 +24,7 @@ public class StepServiceImpl implements StepService {
 
     private final StepRepository stepRepository;
     private final StepMapper stepMapper;
+    private final StepMerger stepMerger;
     private final StepResponseMapper stepResponseMapper;
 
     @Override
@@ -80,7 +80,7 @@ public class StepServiceImpl implements StepService {
 
         Step oldStep = stepRepository.getOne(stepId);
 
-        Step newStep = stepMapper.merge(oldStep, stepRequest);
+        Step newStep = stepMerger.merge(oldStep, stepRequest);
 
         newStep = stepRepository.saveAndFlush(newStep);
 

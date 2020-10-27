@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -23,9 +24,10 @@ import static org.hibernate.id.enhanced.SequenceStyleGenerator.CONFIG_SEQUENCE_P
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @MappedSuperclass
-@ToString
+@Accessors(chain = true)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public abstract class BaseEntity implements Serializable {
 
@@ -41,7 +43,7 @@ public abstract class BaseEntity implements Serializable {
                     @Parameter(name = CONFIG_SEQUENCE_PER_ENTITY_SUFFIX, value = "_SEQ")
             })
     @EqualsAndHashCode.Include
-    private Long id;
+    protected Long id;
 
     @CreationTimestamp
     @Column(name = "CREATED_TIMESTAMP", updatable = false)

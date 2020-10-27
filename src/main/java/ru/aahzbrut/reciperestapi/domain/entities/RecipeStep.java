@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 import ru.aahzbrut.reciperestapi.domain.BaseEntity;
 
 import javax.persistence.AttributeOverride;
@@ -12,11 +13,13 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.time.LocalDateTime;
 
 @Entity(name = "RECIPE_STEP")
 @Getter
 @Setter
 @NoArgsConstructor
+@Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @AttributeOverride(name = "id", column = @Column(name = "RECIPE_STEP_ID"))
 public class RecipeStep extends BaseEntity {
@@ -33,4 +36,22 @@ public class RecipeStep extends BaseEntity {
 
     @Column(name = "ORDINAL")
     private Integer ordinal;
+
+    @Override
+    public RecipeStep setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    @Override
+    public RecipeStep setCreatedDateTime(LocalDateTime createdDateTime) {
+        this.createdDateTime = createdDateTime;
+        return this;
+    }
+
+    @Override
+    public RecipeStep setModifiedDateTime(LocalDateTime modifiedDateTime) {
+        this.modifiedDateTime = modifiedDateTime;
+        return this;
+    }
 }

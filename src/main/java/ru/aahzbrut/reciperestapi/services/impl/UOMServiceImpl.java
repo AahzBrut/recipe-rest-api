@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 import ru.aahzbrut.reciperestapi.domain.entities.UOM;
 import ru.aahzbrut.reciperestapi.dto.requests.UOMRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.uom.UOMResponse;
-import ru.aahzbrut.reciperestapi.mappers.UOMMapper;
-import ru.aahzbrut.reciperestapi.mappers.UOMResponseMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.UOMMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.UOMMerger;
+import ru.aahzbrut.reciperestapi.mappers.impl.UOMResponseMapper;
 import ru.aahzbrut.reciperestapi.repositories.UOMRepository;
 import ru.aahzbrut.reciperestapi.services.UOMService;
 
@@ -15,9 +16,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static ru.aahzbrut.reciperestapi.utils.DebugStrings.FINISH;
-import static ru.aahzbrut.reciperestapi.utils.DebugStrings.START;
-import static ru.aahzbrut.reciperestapi.utils.DebugStrings.UOM_TRACE;
+import static ru.aahzbrut.reciperestapi.utils.DebugStrings.*;
 import static ru.aahzbrut.reciperestapi.utils.ReflectionUtils.getCurrentMethodName;
 
 @Slf4j
@@ -27,6 +26,7 @@ public class UOMServiceImpl implements UOMService {
 
     private final UOMRepository uomRepository;
     private final UOMMapper uomMapper;
+    private final UOMMerger uomMerger;
     private final UOMResponseMapper uomResponseMapper;
 
     @Override
@@ -91,7 +91,7 @@ public class UOMServiceImpl implements UOMService {
 
         UOM oldUom = uomRepository.getOne(uomId);
 
-        UOM newUom = uomMapper.merge(oldUom, uomRequest);
+        UOM newUom = uomMerger.merge(oldUom, uomRequest);
 
         newUom = uomRepository.saveAndFlush(newUom);
 

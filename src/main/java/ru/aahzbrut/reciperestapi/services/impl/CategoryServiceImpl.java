@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 import ru.aahzbrut.reciperestapi.domain.entities.Category;
 import ru.aahzbrut.reciperestapi.dto.requests.CategoryRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.category.CategoryResponse;
-import ru.aahzbrut.reciperestapi.mappers.CategoryMapper;
-import ru.aahzbrut.reciperestapi.mappers.CategoryResponseMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.CategoryMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.CategoryMerger;
+import ru.aahzbrut.reciperestapi.mappers.impl.CategoryResponseMapper;
 import ru.aahzbrut.reciperestapi.repositories.CategoryRepository;
 import ru.aahzbrut.reciperestapi.services.CategoryService;
 
@@ -26,6 +27,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
+    private final CategoryMerger categoryMerger;
     private final CategoryResponseMapper categoryResponseMapper;
 
     @Transactional
@@ -102,7 +104,7 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = categoryRepository.getOne(categoryId);
         log.trace("Category before update: " + category);
 
-        category = categoryMapper.merge(category, categoryRequest);
+        category = categoryMerger.merge(category, categoryRequest);
         log.trace("Category after update: " + category);
 
         category = categoryRepository.saveAndFlush(category);

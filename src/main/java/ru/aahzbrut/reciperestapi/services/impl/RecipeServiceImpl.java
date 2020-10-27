@@ -6,8 +6,9 @@ import ru.aahzbrut.reciperestapi.domain.entities.Recipe;
 import ru.aahzbrut.reciperestapi.dto.requests.NoteRequest;
 import ru.aahzbrut.reciperestapi.dto.requests.RecipeRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.recipe.RecipeResponse;
-import ru.aahzbrut.reciperestapi.mappers.RecipeMapper;
-import ru.aahzbrut.reciperestapi.mappers.RecipeResponseMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.RecipeMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.RecipeMerger;
+import ru.aahzbrut.reciperestapi.mappers.impl.RecipeResponseMapper;
 import ru.aahzbrut.reciperestapi.repositories.RecipeRepository;
 import ru.aahzbrut.reciperestapi.services.NoteService;
 import ru.aahzbrut.reciperestapi.services.RecipeService;
@@ -24,6 +25,7 @@ public class RecipeServiceImpl implements RecipeService {
 
     private final RecipeResponseMapper recipeResponseMapper;
     private final RecipeMapper recipeMapper;
+    private final RecipeMerger recipeMerger;
 
     @Override
     public RecipeResponse getById(Long recipeId) {
@@ -55,7 +57,7 @@ public class RecipeServiceImpl implements RecipeService {
 
         Recipe recipe = recipeRepository.getOne(recipeId);
 
-        recipe = recipeMapper.merge(recipe, recipeRequest);
+        recipe = recipeMerger.merge(recipe, recipeRequest);
 
         recipe = recipeRepository.saveAndFlush(recipe);
 

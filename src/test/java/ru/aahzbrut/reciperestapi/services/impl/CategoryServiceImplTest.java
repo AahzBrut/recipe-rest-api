@@ -11,10 +11,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import ru.aahzbrut.reciperestapi.domain.entities.Category;
 import ru.aahzbrut.reciperestapi.dto.requests.CategoryRequest;
 import ru.aahzbrut.reciperestapi.dto.responses.category.CategoryResponse;
-import ru.aahzbrut.reciperestapi.mappers.CategoryMapper;
-import ru.aahzbrut.reciperestapi.mappers.CategoryResponseMapper;
-import ru.aahzbrut.reciperestapi.mappers.impl.CategoryMapperImpl;
-import ru.aahzbrut.reciperestapi.mappers.impl.CategoryResponseMapperImpl;
+import ru.aahzbrut.reciperestapi.mappers.impl.CategoryMapper;
+import ru.aahzbrut.reciperestapi.mappers.impl.CategoryResponseMapper;
 import ru.aahzbrut.reciperestapi.repositories.CategoryRepository;
 
 import java.time.LocalDateTime;
@@ -50,10 +48,10 @@ class CategoryServiceImplTest {
     CategoryRepository categoryRepository;
 
     @Spy
-    CategoryMapper categoryMapper = new CategoryMapperImpl();
+    CategoryMapper categoryMapper = new CategoryMapper();
 
     @Spy
-    CategoryResponseMapper categoryResponseMapper = new CategoryResponseMapperImpl();
+    CategoryResponseMapper categoryResponseMapper = new CategoryResponseMapper();
 
 
     @InjectMocks
